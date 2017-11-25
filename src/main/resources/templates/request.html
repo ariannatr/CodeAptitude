@@ -55,11 +55,11 @@
 
                                 <li><a  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Φιλοξενία <span class="caret"></span></a>
                                     <ul class="dropdown-menu">
-                                        <li><a th:href="@{/gallery}" data-hover="Ψάχνουν Σπίτι">Ψάχνουν Σπίτι</a></li>
-                                        <li><a th:href="@{/gallery}" data-hover="Παρέχουν Σπίτι">Παρέχουν Σπίτι</a></li>
+                                        <li><a th:href="@{/gallery}" data-hover="Ιδιοκτήτες">Ψάχνουν Σπίτι</a></li>
+                                        <li><a th:href="@{/gallery}" data-hover="Συνεργάτες">Παρέχουν Σπίτι</a></li>
                                     </ul>
                                 </li>
-                                <li><a th:href="@{/request}" data-hover="Αιτήσεις">Αιτήσεις</a></li>
+                                <li><a th:href="@{/gallery}" data-hover="Αιτήσεις">Αιτήσεις</a></li>
                                 <li><a th:href="@{/gallery}" data-hover="Βlog">Blog</a></li>
                                 <li><a th:href="@{/about}" data-hover="About">About</a></li>
                             </ul>
@@ -72,122 +72,80 @@
         <!-- //header -->
     </div>
 </div>
-<!-- //banner -->
-<!-- welcome -->
-<div class="welcome">
-    <div class="container">
-        <div class="col-md-6 w3ls_welcome_right">
-            <div class="flexslider">
-                <ul class="slides">
-                    <li>
-                        <div class="agileits_w3layouts_welcome_grid">
-                            <img th:src="@{images/g1.jpg}" alt=" " class="img-responsive" />
-                        </div>
-                    </li>
-                    <li>
-                        <div class="agileits_w3layouts_welcome_grid">
-                            <img th:src="@{images/g2.jpg}" alt=" " class="img-responsive" />
-                        </div>
-                    </li>
-                    <li>
-                        <div class="agileits_w3layouts_welcome_grid">
-                            <img th:src="@{images/g3.jpg}" alt=" " class="img-responsive" />
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="col-md-6 w3ls_welcome_left">
-            <div class="w3ls_welcome_right1">
-                <h3 class="agileits-title">About </h3>
-                <h6>Το πρόγραμμα<span> Dear Pet </span>αλλάζει τη σχέση σου με τα κατοικίδια. </h6>
-                <p>Τώρα μπορείς να ασφαλίσεις το κατοικίδιο σου και να του προσφέρεις τις καλύτερες υπηρεσίες. Κλείσε ραντεβού για καλλωπισμό ή για εξετάσεις ή επωφελίσου από τις προσφορές των συνεργαζόμενων καταστημάτων.
-                    Ενίσχυσε την κοινότητα των ζώων και βοήθησε τις φιλοζωικές.Donec fringilla lacus eu pretium rutrum. Cras aliquet congue ullamcorper. Etiam mattis eros eu ullamcorper volutpat. Proin ut dui a urna efficitur varius. uisque molestie cursus mi et congue consectetur adipiscing elit cras rutrum iaculis enim, Lorem ipsum dolor sit amet, non convallis felis mattis at. Maecenas sodales tortor ac ligula ultrices dictum et quis urna.
-                    Etiam pulvinar metus neque, eget porttitor massa vulputate in.<br> Fusce lacus purus, pulvinar ut lacinia id, sagittis eu mi.
-                    Vestibulum eleifend massa sem, eget dapibus turpis efficitur at. Aliquam viverra quis leo et efficitur. Nullam arcu risus, scelerisque quis interdum eget, fermentum viverra turpis. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut At vero eos
-                </p>
-            </div>
-            <div class="clearfix"> </div>
-        </div>
-        <div class="clearfix"> </div>
-    </div>
-</div>
-<!-- //welcome -->
-<!-- Stats -->
-<div class="stats services jarallax">
-    <div class="container">
-        <div class="stats-info agileits-w3layouts">
-            <div class="col-sm-3 col-xs-6 stats-grid">
-                <div class="stats-img">
-                    <i class="fa fa-users" aria-hidden="true"></i>
-                </div>
-                <h5>Ευχαριστημένοι Πελάτες</h5>
-                <div class='numscroller numscroller-big-bottom' data-slno='1' data-min='0' data-max='157000' data-delay='.5' data-increment="100">7000</div>
-            </div>
-            <div class="col-sm-3 col-xs-6 stats-grid">
-                <div class="stats-img w3-agileits">
-                    <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
-                </div>
-                <h5>Συνεργάτες</h5>
-                <div class='numscroller numscroller-big-bottom' data-slno='1' data-min='0' data-max='850' data-delay='8' data-increment="1">185</div>
-            </div>
-            <div class="col-sm-3 col-xs-6 stats-grid">
-                <div class="stats-img w3-agileits">
-                    <i class="fa fa-briefcase" aria-hidden="true"></i>
-                </div>
-                <h5>Κοινωνική Συνεισφορά</h5>
-                <div class='numscroller numscroller-big-bottom' data-slno='1' data-min='0' data-max='80000' data-delay='.5' data-increment="100">80000</div>
-            </div>
-            <div class="col-sm-3 col-xs-6 stats-grid">
-                <div class="stats-img w3-agileits">
-                    <i class="fa fa-trophy" aria-hidden="true"></i>
-                </div>
-                <h5>Βραβεία</h5>
-                <div class='numscroller numscroller-big-bottom' data-slno='1' data-min='0' data-max='269' data-delay='8' data-increment="1">TBA</div>
-            </div>
-            <div class="clearfix"></div>
-        </div>
-    </div>
-</div>
-<!-- //Stats -->
-<!-- team -->
-<div class="team agileits">
-    <div class="team-agileinfo">
-        <div class="container">
-            <h3 class="agileits-title w3title2">Η ομάδα</h3>
-            <div class="team-row agileits-w3layouts" align="center">
-                <div class="col-sm-3 col-xs-6 team-grids">
-                    <div class="team-agileimg">
-                        <img class="img-responsive" th:src="@{images/ar.jpg}" alt="">
-                        <div class="captn">
-                            <div class="captn-top">
-                                <h4>Τριανταφύλλου Αριάννα</h4>
-                                <p>Co-founder of Dear Pet</p>
-                            </div>
+<div class="grid_3 grid_4">
+    <h3 class="w3ls-hdg">Συμπληρώστε τα πεδία για εκδήλωση ενδιαφέροντος κι εμείς θα επικοινωνήσουμε μαζί σας.</h3>
+    <div class="tab-content">
+        <div class="tab-pane active" id="horizontal-form">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label for="focusedinput" class="col-sm-2 control-label">Όνομα Επιχείρησης</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control1" id="focusedinput" placeholder="Όνομα Επιχείρησης">
+                    </div>
 
-                        </div>
+                </div>
+                <div class="form-group">
+                    <label for="selector1" class="col-sm-2 control-label">Τύπος Επιχείρησης</label>
+                    <div class="col-sm-8"><select name="selector1" id="selector1" class="form-control1">
+                        <option>Επιλέξτε από τα παρακάτω:</option>
+                        <option>Κτηνιατρείο</option>
+                        <option>Εκπαίδευση</option>
+                        <option>Διατροφή</option>
+                        <option>Καλλωπισμός</option>
+                    </select></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="txtarea1" class="col-sm-2 control-label">ΠΛηροφορίες</label>
+                    <div class="col-sm-8"><textarea name="txtarea1" id="txtarea1" cols="50" rows="4" class="form-control1"></textarea></div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="smallinput" class="col-sm-2 control-label label-input-sm">Περιοχή</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control1 input-sm" id="smallinput" placeholder="Περιοχή">
                     </div>
                 </div>
-                <div class="col-sm-3 col-xs-6 team-grids">
-                    <div class="team-agileimg">
-                        <img class="img-responsive" th:src="@{images/stav.jpg}" alt="">
-                        <div class="captn">
-                            <div class="captn-top">
-                                <h4>Σοφιανοπούλου Σταυρίνα</h4>
-                                <p>Co-founder of Dear Pet</p>
-                            </div>
-
-                        </div>
+                <div class="form-group">
+                    <label for="mediuminput" class="col-sm-2 control-label">Διεύθυνση</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control1" id="mediuminput" placeholder="Διεύθυνση">
                     </div>
                 </div>
-
-
-                <div class="clearfix"> </div>
-            </div>
+                <div class="form-group mb-n">
+                    <label for="largeinput" class="col-sm-2 control-label label-input-lg">Email</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control1 input-lg" id="largeinput" placeholder="Email">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="mediuminput" class="col-sm-2 control-label">Τηλέφωνο</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control1" id="telephone" placeholder="Tηλέφωνο">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-10">
+                    <input class="btn btn-primary btn-default" style="float: right" type="submit" value="Δήλωση">
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 </div>
-<!-- //team -->
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- news letter -->
 <div class="subscribe jarallax">
     <div class="sub-agileinfo">
@@ -226,10 +184,6 @@
         </div>
     </div>
 </div>
-<!-- //footer -->
-<!-- modal-about -->
-
-<!-- //modal-about -->
 <!-- modal sign in  -->
 <div class="modal bnr-modal about-modal w3-agileits fade" id="myModal2" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
