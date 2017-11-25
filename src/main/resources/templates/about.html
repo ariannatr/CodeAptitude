@@ -282,7 +282,7 @@
 </div>
 <!-- //modal sign in -->
 <!--modal profile-->
-<div class="modal bnr-modal about-modal w3-agileits fade" id="myModal3" tabindex="-1" role="dialog">
+<div th:if ="${(uname != null )}"class="modal bnr-modal about-modal w3-agileits fade" id="myModal3" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -318,14 +318,14 @@
                                         </tr>
 
                                     </table>
-                                    <form class="login" th:action="@{/host}" method="POST">
+                                    <!--form class="login" th:action="@{/host}" method="POST">
                                         <p> Παρέχω φιλοξενία για τις μέρες :</p>
                                         <input name="apoDate" type="text"  id="datepicker1" style="width: 40%;" placeholder="Από" data-date-format='yyyy-mm-dd' >
                                         <input name="toDate" type="text" id="datepicker2" style="width: 40%;" placeholder="Εως" data-date-format='yyyy-mm-dd' >
                                         <div class="w3ls-submit">
                                             <input type="submit" value="Αίτηση">
                                         </div>
-                                    </form>
+                                    </form-->
                                 </div>
                             </div>
                             <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-1">
@@ -346,14 +346,14 @@
                                             </tr>
 
                                         </table>
-                                        <form class="login" th:action="@{/askfor}" method="POST">
+                                        <!--form class="login" th:action="@{/askfor}" method="POST">
                                             <p> Θέλω σπίτι για τις μέρες :</p>
                                             <input name="apoDate" type="text"  id="datepicker1" style="width: 40%;" placeholder="Από" data-date-format='yyyy-mm-dd' >
                                             <input name="toDate" type="text" id="datepicker2" style="width: 40%;" placeholder="Εως" data-date-format='yyyy-mm-dd' >
                                             <div class="w3ls-submit">
                                                 <input type="submit" value="Αίτηση">
                                             </div>
-                                        </form>
+                                        </form-->
                                     </div>
                                 </div>
                             </div>
@@ -436,7 +436,7 @@
         });
     });
 </script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+<!--script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
 
 <script type="text/javascript">
 
@@ -454,7 +454,7 @@
         minDate: 0
     });
 
-</script>
+</script-->
 
 <!-- //ResponsiveTabs js -->
 <!-- Bootstrap core JavaScript
