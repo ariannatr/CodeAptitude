@@ -51,16 +51,16 @@
 						<!-- top-nav -->
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav cl-effect-16">
-								<li><a href="index.html" class="active" data-hover="Αρχική">Αρχική</a></li>
+								<li><a th:href="@{/index}" class="active" data-hover="Αρχική">Αρχική</a></li>
 
 								<li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Αιτήσεις <span class="caret"></span></a>
 									<ul class="dropdown-menu">
-										<li><a href="icons.html" data-hover="Web Icons">Ιδιοκτήτες</a></li>
-										<li><a href="codes.html" data-hover="Short Codes">Συνεργάτες</a></li>
+										<li><a th:href="@{/gallery}" data-hover="Ιδιοκτήτες">Ιδιοκτήτες</a></li>
+										<li><a th:href="@{/gallery}" data-hover="Short Codes">Συνεργάτες</a></li>
 									</ul>
 								</li>
-								<li><a href="gallery.html" data-hover="Gallery">Blog</a></li>
-								<li><a href="about.html" data-hover="About">About</a></li>
+								<li><a th:href="@{/gallery}" data-hover="Gallery">Blog</a></li>
+								<li><a th:href="@{/about}" data-hover="About">About</a></li>
 							</ul>
 							<div class="clearfix"> </div>
 						</div>
@@ -85,8 +85,8 @@
 				</div>
 				<div class="agile_social_icons_banner">
 					<ul class="agileits_social_list">
-						<li><a href="#" class="w3_agile_facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-						<li><a href="#" class="agile_twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+						<li><a th:href="@{/index}" class="w3_agile_facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+						<li><a th:href="@{/index}" class="agile_twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
 					</ul>
 				</div>
 			</div>
@@ -156,17 +156,17 @@
 				<ul class="slides">
 					<li>
 						<div class="agileits_w3layouts_welcome_grid">
-							<img src="images/g1.jpg" alt=" " class="img-responsive" />
+							<img th:src="@{images/g1.jpg}" alt=" " class="img-responsive" />
 						</div>
 					</li>
 					<li>
 						<div class="agileits_w3layouts_welcome_grid">
-							<img src="images/g2.jpg" alt=" " class="img-responsive" />
+							<img th:src="@{images/g2.jpg}" alt=" " class="img-responsive" />
 						</div>
 					</li>
 					<li>
 						<div class="agileits_w3layouts_welcome_grid">
-							<img src="images/g3.jpg" alt=" " class="img-responsive" />
+							<img th:src="@{images/g3.jpg}" alt=" " class="img-responsive" />
 						</div>
 					</li>
 				</ul>
