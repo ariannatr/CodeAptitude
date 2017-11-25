@@ -11,12 +11,13 @@ import java.io.Serializable;
 public class UsersEntity implements Serializable {
     private String username;
     private String password;
-    private int type;
+    private int lost;
     private String name;
     private String surname;
     private String telephone;
-    private String email;
+    private String location;
     private String photo;
+    private String petname;
 
     @Id
     @Column(name = "username")
@@ -39,13 +40,13 @@ public class UsersEntity implements Serializable {
     }
 
     @Basic
-    @Column(name = "type")
+    @Column(name = "lost")
     public int getType() {
-        return type;
+        return lost;
     }
 
     public void setType(int type) {
-        this.type = type;
+        this.lost = lost;
     }
 
     @Basic
@@ -79,13 +80,11 @@ public class UsersEntity implements Serializable {
     }
 
     @Basic
-    @Column(name = "email")
-    public String getEmail() {
-        return email;
-    }
+    @Column(name = "location")
+    public String getEmail() {return location;}
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setEmail(String location) {
+        this.location = location;
     }
 
     @Basic
@@ -97,6 +96,16 @@ public class UsersEntity implements Serializable {
         this.photo = photo;
     }
 
+    @Basic
+    @Column(name = "petname")
+    public String getPetName() {
+        return petname;
+    }
+
+    public void setPetName(String petname) {
+        this.petname = petname;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -104,14 +113,14 @@ public class UsersEntity implements Serializable {
 
         UsersEntity that = (UsersEntity) o;
 
-        if (type != that.type) return false;
+        if (lost != that.lost) return false;
         if (telephone != null ? !telephone.equals(that.telephone) : that.telephone != null) return false;
         if (username != null ? !username.equals(that.username) : that.username != null) return false;
         if (password != null ? !password.equals(that.password) : that.password != null) return false;
         if (name != null ? !name.equals(that.name) : that.name != null) return false;
         if (surname != null ? !surname.equals(that.surname) : that.surname != null) return false;
-        if (email != null ? !email.equals(that.email) : that.email != null) return false;
-
+        if (location != null ? !location.equals(that.location) : that.location != null) return false;
+        if (petname != null ? !petname.equals(that.petname) : that.petname != null) return false;
         return true;
     }
 
@@ -119,11 +128,12 @@ public class UsersEntity implements Serializable {
     public int hashCode() {
         int result = username != null ? username.hashCode() : 0;
         result = 31 * result + (password != null ? password.hashCode() : 0);
-        result = 31 * result + type;
+        result = 31 * result + lost;
         result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (petname != null ? petname.hashCode() : 0);
         result = 31 * result + (surname != null ? surname.hashCode() : 0);
         result = 31 * result + (telephone != null ? telephone.hashCode() : 0);
-        result = 31 * result + (email != null ? email.hashCode() : 0);
+        result = 31 * result + (location != null ? location.hashCode() : 0);
         return result;
     }
     
