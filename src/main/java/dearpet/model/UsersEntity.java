@@ -81,9 +81,9 @@ public class UsersEntity implements Serializable {
 
     @Basic
     @Column(name = "location")
-    public String getEmail() {return location;}
+    public String getLocation() {return location;}
 
-    public void setEmail(String location) {
+    public void setLocation(String location) {
         this.location = location;
     }
 

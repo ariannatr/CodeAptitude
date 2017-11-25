@@ -1,5 +1,9 @@
 package dearpet.controller;
 
+import dearpet.authentication.IAuthenticationFacade;
+import dearpet.model.UsersEntity;
+import dearpet.service.UsersService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,7 +17,10 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 public class MainController {
-
+    @Autowired
+    private UsersService userService;
+    @Autowired
+    private IAuthenticationFacade authenticationFacade;
     @RequestMapping(value={"/index","/"}, method = RequestMethod.GET)
     public ModelAndView index(){
         ModelAndView modelAndView = new ModelAndView();
@@ -25,6 +32,15 @@ public class MainController {
     public ModelAndView about(){
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("/about");
+        Authentication authentication = authenticationFacade.getAuthentication();
+        if (!authentication.getName().equals("anonymousUser")) {
+            modelAndView.addObject("uname", authentication.getName());
+            UsersEntity userS = userService.findByUsername(authentication.getName());
+
+            modelAndView.addObject("user",userS);
+
+
+        }
         return modelAndView;
     }
 

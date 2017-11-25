@@ -76,8 +76,8 @@ public class UsersServiceImpl implements UsersService {
 
     @Override
     public void updateUser(UsersEntity useron,UsersEntity user){
-        if(!user.getEmail().replaceAll(" ","").equals("")){
-            useron.setEmail(user.getEmail());
+        if(!user.getLocation().replaceAll(" ","").equals("")){
+            useron.setLocation(user.getLocation());
         }
         if(!user.getName().replaceAll(" ","").equals(""))
         {
