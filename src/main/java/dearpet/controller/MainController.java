@@ -15,9 +15,37 @@ import org.springframework.web.servlet.ModelAndView;
 public class MainController {
 
     @RequestMapping(value={"/index","/"}, method = RequestMethod.GET)
-    public ModelAndView question(){
+    public ModelAndView index(){
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("/index");
+        return modelAndView;
+    }
+
+    @RequestMapping(value={"/about"}, method = RequestMethod.GET)
+    public ModelAndView about(){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("/about");
+        return modelAndView;
+    }
+
+    @RequestMapping(value={"/gallery"}, method = RequestMethod.GET)
+    public ModelAndView gallery(){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("/gallery");
+        return modelAndView;
+    }
+
+    @RequestMapping(value={"/contact"}, method = RequestMethod.GET)
+    public ModelAndView contact(){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("/contact");
+        return modelAndView;
+    }
+
+    @RequestMapping(value={"/about"}, method = RequestMethod.POST)
+    public ModelAndView aboutqu(){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("/about");
         return modelAndView;
     }
 }
