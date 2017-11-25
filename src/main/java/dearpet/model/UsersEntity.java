@@ -98,11 +98,11 @@ public class UsersEntity implements Serializable {
 
     @Basic
     @Column(name = "petname")
-    public String getPetName() {
+    public String getPetname() {
         return petname;
     }
 
-    public void setPetName(String petname) {
+    public void setPetname(String petname) {
         this.petname = petname;
     }
 

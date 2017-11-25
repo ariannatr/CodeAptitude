@@ -36,10 +36,10 @@ public class MainController {
         if (!authentication.getName().equals("anonymousUser")) {
             modelAndView.addObject("uname", authentication.getName());
             UsersEntity userS = userService.findByUsername(authentication.getName());
-
+            modelAndView.addObject("uname", authentication.getName());
             modelAndView.addObject("user",userS);
 
-
+        System.out.println("His name is"+userS.getName());
         }
         return modelAndView;
     }
