@@ -151,7 +151,7 @@
 				<h6>Το πρόγραμμα<span> Dear Pet </span>αλλάζει τη σχέση σου με τα κατοικίδια. </h6>
 				<p> Τώρα μπορείς να ασφαλίσεις το κατοικίδιο σου και να του προσφέρεις τις καλύτερες υπηρεσίες. Κλείσε ραντεβού για καλλωπισμό ή για εξετάσεις ή επωφελίσου από τις προσφορές των συνεργαζόμενων καταστημάτων. Ενίσχυσε την κοινότητα των ζώων και βοήθησε τις φιλοζωικές.</p>
 				<div class="w3l_more">
-					<a  class="button button--nina" data-text="Μάθε Περισσότερα" data-toggle="modal" data-target="#myModal">
+					<a  th:href="@{/about}" class="button button--nina" data-text="Μάθε Περισσότερα">
 						<span>M</span><span>α</span><span>θ</span><span>ε</span> <span>Π</span><span>ε</span><span>ρ</span><span>ι</span><span>σ</span><span>σ</span>
 						<span>ο</span><span>τ</span><span>ε</span><span>ρ</span><span>α</span>
 					</a>
@@ -293,8 +293,8 @@
 						<div class="resp-tabs-container">
 							<div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
 								<div class="agileits-login">
-									<form action="#" method="post">
-										<input type="email" class="email" name="username" placeholder="Username" required=""/>
+									<form class="login" th:action="@{/login}" method="POST">
+										<input type="text" class="username" name="username" placeholder="Username" required=""/>
 										<input type="password" class="password" name="password" placeholder="Κωδικός" required=""/>
 										<div class="wthree-text">
 											<ul>

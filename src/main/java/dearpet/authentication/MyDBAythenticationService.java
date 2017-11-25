@@ -29,16 +29,17 @@ public class MyDBAythenticationService implements UserDetailsService {
         }
 
         // [USER,ADMIN,..]
-        Integer roles= user.getType();
+       // Integer roles= user.g();
 
         List<GrantedAuthority> grantList= new ArrayList<GrantedAuthority>();
-        if(roles!= -1)  {
+        /*if(roles!= -1)  {
                             // ROLE_USER, ROLE_ADMIN,..
                 GrantedAuthority authority = new SimpleGrantedAuthority("ROLE_" + roles);
                 grantList.add(authority);
                 System.out.println("Has role"+roles);
 
         }
+             */
 
         UserDetails userDetails = (UserDetails) new User(user.getUsername(),
                 user.getPassword(),grantList);
