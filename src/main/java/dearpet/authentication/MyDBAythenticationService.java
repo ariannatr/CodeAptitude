@@ -26,7 +26,9 @@ public class MyDBAythenticationService implements UserDetailsService {
 
         if (user == null) {
             throw new UsernameNotFoundException("User " + username + " was not found in the database");
+
         }
+        System.out.println("User " + username + " was  found in the database");
 
         // [USER,ADMIN,..]
        // Integer roles= user.g();

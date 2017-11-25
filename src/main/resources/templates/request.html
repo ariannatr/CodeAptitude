@@ -185,42 +185,80 @@
     </div>
 </div>
 <!-- modal sign in  -->
-<div class="modal bnr-modal about-modal w3-agileits fade" id="myModal2" tabindex="-1" role="dialog">
+<div class="modal bnr-modal about-modal w3-agileits fade" id="myModal3" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             </div>
-            <div class="modal-body login-page "><!-- login-page -->
+            <div class="modal-body profile-page "><!-- profile-page -->
                 <div class="sap_tabs">
-                    <div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
+                    <div id="horizontalTab2" style="display: block; width: 100%; margin: 0px;">
                         <ul class="resp-tabs-list">
-                            <li class="resp-tab-item" aria-controls="tab_item-0"><span>Συνδεση</span></li>
+                            <li class="resp-tab-item" aria-controls="tab_item-0"><span>To προφιλ μου</span></li>
+                            <li class="resp-tab-item" aria-controls="tab_item-1"><span>To κατικιδιο μου</span></li>
                         </ul>
                         <div class="clearfix"> </div>
                         <div class="resp-tabs-container">
                             <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
                                 <div class="agileits-login">
-                                    <form action="#" method="post">
-                                        <input type="email" class="email" name="username" placeholder="Username" required=""/>
-                                        <input type="password" class="password" name="password" placeholder="Κωδικός" required=""/>
-                                        <div class="wthree-text">
-                                            <ul>
-                                                <li>
-                                                    <label class="anim">
-                                                        <input type="checkbox" class="checkbox">
-                                                        <span> Να με θυμάσαι ;</span>
-                                                    </label>
-                                                </li>
-                                                <li> <a>Ξέχασες τον κωδικό ;</a> </li>
-                                            </ul>
-                                            <div class="clearfix"> </div>
-                                        </div>
+                                    <table>
+                                        <tr>
+                                            <td class="mylabel"> Name   </td>
+                                            <td > <span th:text="${user.name}"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="mylabel"> Surname   </td>
+                                            <td> <span th:text="${user.surname}"></span> </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="mylabel"> Location  </td>
+                                            <td> <span th:text="${user.location}"></span> </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="mylabel"> Telephone   </td>
+                                            <td> <span th:text="${user.telephone}"></span> </td>
+                                        </tr>
+
+                                    </table>
+                                    <form class="login" th:action="@{/}" method="POST">
+                                        <p> Παρέχω φιλοξενία για τις μέρες :</p>
+                                        <input name="apoDate" type="text"  id="datepicker1" style="width: 40%;" placeholder="Από" data-date-format='yyyy-mm-dd' >
+                                        <input name="toDate" type="text" id="datepicker2" style="width: 40%;" placeholder="Εως" data-date-format='yyyy-mm-dd' >
                                         <div class="w3ls-submit">
-                                            <input type="submit" value="Συνδεση">
+                                            <input type="submit" value="Αίτηση">
                                         </div>
                                     </form>
                                 </div>
+
+                            </div>
+                            <div class="tab-2 resp-tab-content" aria-labelledby="tab_item-1">
+                                <div class="agileits-login">
+                                    <table>
+                                        <tr>
+                                            <td class="mylabel"> PetName   </td>
+                                            <td > <span th:text="${user.petname}"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>  <label class="anim">
+                                                <input type="checkbox" class="checkbox">
+                                                <span> Lost</span>
+                                            </label>
+                                            </td>
+                                            <td></td>
+                                        </tr>
+
+                                    </table>
+                                    <form class="login" th:action="@{/}" method="POST">
+                                        <p> Θέλω σπίτι για τις μέρες :</p>
+                                        <input name="apoDate" type="text"  id="datepicker1" style="width: 40%;" placeholder="Από" data-date-format='yyyy-mm-dd' >
+                                        <input name="toDate" type="text" id="datepicker2" style="width: 40%;" placeholder="Εως" data-date-format='yyyy-mm-dd' >
+                                        <div class="w3ls-submit">
+                                            <input type="submit" value="Αίτηση">
+                                        </div>
+                                    </form>
+                                </div>
+
                             </div>
 
                         </div>

@@ -26,23 +26,7 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 		registry.addViewController("/admin").setViewName("/admin");
 		registry.addViewController("/login").setViewName("/login");
 		registry.addViewController("/about").setViewName("/about");
-//		registry.addViewController("/register").setViewName("/register");
-//		registry.addViewController("/users").setViewName("/users");
-//		registry.addViewController("/profile").setViewName("/profile");
-//		registry.addViewController("/renters").setViewName("/users");
-//		registry.addViewController("/owners").setViewName("/users");
-//		registry.addViewController("/accept").setViewName("/users");
-//		registry.addViewController("/apartment_reg").setViewName("/apartment_reg");
-//		registry.addViewController("/apartment").setViewName("/apartment");
-//		registry.addViewController("/apartment/**").setViewName("/apartment");
-//		registry.addViewController("/apartment_update").setViewName("/apartment");
-//		registry.addViewController("/aparts").setViewName("/aparts");
-//		registry.addViewController("/searchAparts").setViewName("/searchAparts");
-//		registry.addViewController("/messages").setViewName("/messages");
-//		registry.addViewController("/apartslist").setViewName("/apartslist");
-//		registry.addViewController("/reservationslist").setViewName("/reservationslist");
-//		registry.addViewController("/reserves").setViewName("/reserves");
-//		registry.addViewController("/critbyrenter").setViewName("/criticslist");
-//		registry.addViewController("/critforowner").setViewName("/criticslist");
+		registry.addViewController("/grooming").setViewName("/associate");
+		registry.addViewController("/doctor").setViewName("/associate");
 	}
 }

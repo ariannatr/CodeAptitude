@@ -45,30 +45,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 				.antMatchers("/about").permitAll()
 				.antMatchers("/error").permitAll()
 				.antMatchers("/request").permitAll()
-				.antMatchers("/galery").permitAll()
-				.antMatchers("/searchAparts").permitAll()
                 .antMatchers("/search","/search2").permitAll()
-                .antMatchers("/profile").hasAnyRole("0","1","2","3")
-//				.antMatchers("/admin").permitAll()
-				.antMatchers("/renters").hasRole("0")
-
-				.antMatchers("/apartment","/apartment/**").permitAll()
-				.antMatchers("/apartment_update").hasAnyRole("1","3")
-				.antMatchers("/owners").hasRole("0")
-				.antMatchers("/apartslist").hasRole("0")
-				.antMatchers("/messages").hasAnyRole("1","2","3")
-				.antMatchers("/reserves").hasAnyRole("1","2","3")
-				.antMatchers("/accept","/accept/**").hasRole("0")
-				.antMatchers("/downloadusers","/downloadusers/**").hasRole("0")
-				.antMatchers("/downloadapartments").hasRole("0")
-				.antMatchers("/aparts").hasAnyRole("1","3")
-				.antMatchers("/reservationslist").hasRole("0")
-				.antMatchers("/resbyrenter").hasRole("0")
-				.antMatchers("/downloadreservations","/downloadreservations/**").hasRole("0")
-				.antMatchers("/critbyrenter").hasRole("0")
-				.antMatchers("/critforowner").hasRole("0")
-				.antMatchers("/downloadcriticsR","/downloadcriticsR/**").hasRole("0")
-				.antMatchers("/downloadcriticsO","/downloadcriticsO/**").hasRole("0")
+				.antMatchers("/grooming").permitAll()
+				.antMatchers("/doctor").permitAll()
+                .antMatchers("/gallery").permitAll()
 				.anyRequest().authenticated().and().anonymous().and()
                 .csrf().disable()
                 .formLogin()
@@ -97,11 +77,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         return new HttpSessionEventPublisher();
     }
 
-  /*  @Bean
-    public LettuceConnectionFactory connectionFactory() {
-        return new LettuceConnectionFactory();
-    }*/
-	
+
 	@Override
 	public void configure(WebSecurity web) throws Exception {
 	    web.ignoring()
