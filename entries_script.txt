@@ -1,0 +1,23 @@
+INSERT INTO user (username, telephone, name, surname,password,photo,location,lost,petname)
+VALUES ('user1', '6989898989', 'User','User',"$2a$10$Zwcm1wiWgxxgB/OS6vcOIOo0MNUaqLZ7mEMaWVZy0xX9GMYnafWfu",'','Μαρούσι','0','Kali');
+INSERT INTO user (username, telephone, name, surname,password,photo,location,lost,petname)
+VALUES ('user2', '6989898987', 'User2','User2',"$2a$10$Zwcm1wiWgxxgB/OS6vcOIOo0MNUaqLZ7mEMaWVZy0xX9GMYnafWfu",'','Μαρούσι','0','Fatty');
+INSERT INTO user (username, telephone, name, surname,password,photo,location,lost,petname)
+VALUES ('user3', '6989898679', 'User3','User3',"$2a$10$Zwcm1wiWgxxgB/OS6vcOIOo0MNUaqLZ7mEMaWVZy0xX9GMYnafWfu",'','Γκάζι','0','Roulis');
+INSERT INTO user (username, telephone, name, surname,password,photo,location,lost,petname)
+VALUES ('user4', '6983498989', 'User4','User4',"$2a$10$Zwcm1wiWgxxgB/OS6vcOIOo0MNUaqLZ7mEMaWVZy0xX9GMYnafWfu",'','Γκάζι','0','Roudi');
+INSERT INTO user (username, telephone, name, surname,password,photo,location,lost,petname)
+VALUES ('user5', '6989891389', 'User5','User5',"$2a$10$Zwcm1wiWgxxgB/OS6vcOIOo0MNUaqLZ7mEMaWVZy0xX9GMYnafWfu",'','Αργυρούπολη','0','Devon');
+
+INSERT INTO grooming (id, town, address)
+VALUES ('1', 'Αργυρούπολη','Παπανδρέου 35');
+INSERT INTO grooming (id, town, address)
+VALUES ('2', 'Μαρούσι','Κηφισίας 156');
+
+INSERT INTO doctor (id, town, address)
+VALUES ('1', 'Αργυρούπολη','Θήρας 35');
+INSERT INTO doctor (id, town, address)
+VALUES ('2', 'Μαρούσι','Παπανδρέου 34');
+INSERT INTO doctor (id, town, address)
+VALUES ('3', 'Γκάζι','Πειραιώς 34');
+
