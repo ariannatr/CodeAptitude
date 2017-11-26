@@ -39,4 +39,23 @@ public class UserController {
         }
         return modelAndView;
     }
+
+    @RequestMapping(value={"/askfor"}, method = RequestMethod.POST)
+    public ModelAndView askfor(@RequestParam("apoDate") String fromDate,@RequestParam("toDate") String toDate){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("/profile");
+        Authentication authentication = authenticationFacade.getAuthentication();
+        if (!authentication.getName().equals("anonymousUser")) {
+            modelAndView.addObject("uname", authentication.getName());
+            UsersEntity userS = userService.findByUsername(authentication.getName());
+            modelAndView.addObject("uname", authentication.getName());
+            modelAndView.addObject("user",userS);
+            System.out.println("His name is"+userS.getName());
+            userS.setFromDate2(fromDate);
+            userS.setToDate2(toDate);
+            userS.setAskforhome(1);
+            userService.saveUseronUpdate(userS);
+        }
+        return modelAndView;
+    }
 }

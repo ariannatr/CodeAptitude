@@ -43,7 +43,7 @@ public class ShowController {
             modelAndView.addObject("uname", authentication.getName());
             modelAndView.addObject("user",userS);
 
-            ArrayList<UsersEntity> all=userService.findAll();
+            ArrayList<UsersEntity> all=userService.lookHome();
             modelAndView.addObject("mode", "look");
             modelAndView.addObject("items",all);
             System.out.println("His name is"+userS.getName());
@@ -61,7 +61,7 @@ public class ShowController {
             UsersEntity userS = userService.findByUsername(authentication.getName());
             modelAndView.addObject("uname", authentication.getName());
             modelAndView.addObject("user",userS);
-            ArrayList<UsersEntity> all=userService.findAll();
+            ArrayList<UsersEntity> all=userService.giveHome();
             modelAndView.addObject("mode", "give");
             modelAndView.addObject("items",all);
             System.out.println("His name is"+userS.getName());

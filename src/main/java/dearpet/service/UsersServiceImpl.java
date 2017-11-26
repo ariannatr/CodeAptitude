@@ -39,10 +39,14 @@ public class UsersServiceImpl implements UsersService {
     }
 
     @Override
-    public List<UsersEntity> giveHome(){
+    public ArrayList<UsersEntity> giveHome(){
         return userRepository.findAllByHost(1);
     }
 
+    @Override
+    public ArrayList<UsersEntity> lookHome(){
+        return userRepository.findAllByAskforhome(1);
+    }
 
     @Override
     public void saveUser(UsersEntity user,String photopath) {
@@ -123,37 +127,6 @@ public class UsersServiceImpl implements UsersService {
    */
 
 
-//    @Override
-//    public void approveOwner(OwnerEntity ownerEntity)
-//    {
-//        ownerEntity.setApproval(1);
-//        ownerRepository.save(ownerEntity);
-//    }
-//
-//    @Override
-//    public String getType(UsersEntity user)
-//    {
-//        int type=user.getType();
-//        if(type==1)
-//            return ("Renter");
-//        else if(type==2)
-//            return( "Owner");
-//        else if(type==3)
-//            return ("Owner and Renter");
-//        else
-//            return( "Admin");
-//    }
-//
-//    @Override
-//    public void uploadPhoto(UsersEntity useron,String photopath)
-//    {
-//        useron.setPhoto(photopath);
-//        userRepository.save(useron);
-//    }
-//
-//    @Override
-//    public ArrayList<UsersEntity> findAll(){ return userRepository.findAll();}
-//
 
     @Override
     public  ArrayList<UsersEntity> findAll()
