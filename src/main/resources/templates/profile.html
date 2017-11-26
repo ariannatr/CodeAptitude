@@ -14,6 +14,7 @@
     <link th:href="@{/css/style.css}" type="text/css" rel="stylesheet" media="all">
     <link th:href="@{/css/font-awesome.css}" rel="stylesheet"> <!-- font-awesome icons -->
     <link th:href="@{/css/proftabs.css}" rel="stylesheet"> <!-- font-awesome icons -->
+    <link th:href="@{/css/price.css}" rel="stylesheet"> <!-- font-awesome icons -->
 
     <link rel="stylesheet" th:href="@{css/flexslider.css}" type="text/css" media="screen" property="" />
     <!-- //Custom Theme files -->
@@ -154,9 +155,170 @@
                 </form>
             </section>
             <section id="dunkles" class="tab-panel">
-                <h2>6C. Dunkles Bock</h2>
-                <p><strong>Overall Impression:</strong> A dark, strong, malty German lager beer that emphasizes the malty-rich and somewhat toasty qualities of continental malts without being sweet in the finish.</p>
-                <p><strong>History:</strong> Originated in the Northern German city of Einbeck, which was a brewing center and popular exporter in the days of the Hanseatic League (14th to 17th century). Recreated in Munich starting in the 17th century. The name “bock” is based on a corruption of the name “Einbeck” in the Bavarian dialect, and was thus only used after the beer came to Munich. “Bock” also means “Ram” in German, and is often used in logos and advertisements.</p>
+                <h2>Σύγκριση Πακέτων</h2>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-3">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">
+                                        Bronze</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="the-price">
+                                        <h1>
+                                            €10<span class="subscript">/Μήνα</span></h1>
+                                    </div>
+                                    <table class="table">
+                                        <tr>
+                                            <td>
+                                                Ασφάλεια σε Περίπτωση Ατυχήματος
+                                            </td>
+                                        </tr>
+                                        <tr class="active">
+                                            <td>
+                                                Ασφάλεια Θανάτου
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Παροχές Νοσηλείας
+                                            </td>
+                                        </tr>
+                                        <tr class="active">
+                                            <td>
+                                                Έκπτωση σε Συμβεβλημένες Ιατρικές Κλινικές
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                            </td>
+                                        </tr>
+                                        <tr class="active">
+                                            <td>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div th:if="${(user.ins!='1')}" class="panel-footer">
+                                    <a  href="http://www.jquery2dotnet.com" class="btn btn-success" role="button">Αναβάθμιση</a>
+                                </div>
+                                <div th:if="${(user.ins=='1')}" class="panel-footer">
+                                    <a  href="http://www.jquery2dotnet.com" class="btn btn-success" role="button">Το πακέτο μου</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-3">
+                            <div class="panel panel-success">
+                                <div class="cnrflash">
+                                    <div class="cnrflash-inner">
+                        <span class="cnrflash-label">ΠΙΟ
+                            <br>
+                            ΔΗΜΟΦΙΛΕΣ</span>
+                                    </div>
+                                </div>
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">
+                                        Silver</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="the-price">
+                                        <h1>
+                                            20€<span class="subscript">/Μήνα</span></h1>
+                                    </div>
+                                    <table class="table">
+                                        <tr>
+                                            <td>
+                                                Ασφάλεια σε Περίπτωση Ατυχήματος
+                                            </td>
+                                        </tr>
+                                        <tr class="active">
+                                            <td>
+                                                Ασφάλεια Θανάτου
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Παροχές Νοσηλείας
+                                            </td>
+                                        </tr>
+                                        <tr class="active">
+                                            <td>
+                                                Έκπτωση σε Συμβεβλημένες Ιατρικές Κλινικές
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Προσφορές σε Διατροφή και Καλωπισμό
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div th:if="${(user.ins!='2')}" class="panel-footer">
+                                    <a  href="http://www.jquery2dotnet.com" class="btn btn-success" role="button">Αναβάθμιση</a>
+                                    </div>
+                                <div th:if="${(user.ins=='2')}" class="panel-footer">
+                                    <a  href="http://www.jquery2dotnet.com" class="btn btn-success" role="button">Το πακέτο μου</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-3">
+                            <div class="panel panel-info">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">
+                                        Gold</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="the-price">
+                                        <h1>
+                                            €35<span class="subscript">/Μήνα</span></h1>
+                                    </div>
+                                    <table class="table">
+                                        <tr>
+                                            <td>
+                                                Ασφάλεια σε Περίπτωση Ατυχήματος
+                                            </td>
+                                        </tr>
+                                        <tr class="active">
+                                            <td>
+                                                Ασφάλεια Θανάτου
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Παροχές Νοσηλείας
+                                            </td>
+                                        </tr>
+                                        <tr class="active">
+                                            <td>
+                                                Έκπτωση σε Συμβεβλημένες Ιατρικές Κλινικές
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Προσφορές σε Διατροφή και Καλωπισμό
+                                            </td>
+                                        </tr>
+                                        <tr class="active">
+                                            <td>
+                                                Έκπτωση σε Εκπαιδευτικά Προγράμματα
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div th:if="${(user.ins!='3')}" class="panel-footer">
+                                    <a  href="http://www.jquery2dotnet.com" class="btn btn-success" role="button">Αναβάθμιση</a>
+                                    </div>
+                                <div th:if="${(user.ins=='3')}" class="panel-footer">
+                                    <a  href="http://www.jquery2dotnet.com" class="btn btn-success" role="button">Το πακέτο μου</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
         </div>
     </div>

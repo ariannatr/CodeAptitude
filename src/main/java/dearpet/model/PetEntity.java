@@ -35,6 +35,17 @@ public class PetEntity implements  Serializable{
     }
 
     @Basic
+    @Column(name = "location")
+    private String location;
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    @Basic
     @Column(name = "petname")
     public String getPetname() {
         return petname;
@@ -43,7 +54,6 @@ public class PetEntity implements  Serializable{
     public void setPetname(String petname) {
         this.petname = petname;
     }
-
 
     @Basic
     @Column(name = "fromDate")

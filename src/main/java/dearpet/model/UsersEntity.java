@@ -5,10 +5,6 @@ import java.io.Serializable;
 import java.util.Set;
 import java.util.HashSet;
 
-
-/**
- * Created by Arianna on 23/8/2017.
- */
 @Entity
 @Table(name = "user", schema = "mydb")
 public class UsersEntity  implements Serializable{
@@ -35,6 +31,17 @@ public class UsersEntity  implements Serializable{
     }
 
     @Basic
+    @Column(name = "ins")
+    private Integer ins;
+    public Integer getIns() {
+        return ins;
+    }
+
+    public void setIns(Integer ins) {
+        this.ins = ins;
+    }
+
+    @Basic
     @Column(name = "password")
     public String getPassword() {
         return password;
@@ -43,6 +50,7 @@ public class UsersEntity  implements Serializable{
     public void setPassword(String password) {
         this.password = password;
     }
+
 
     @Basic
     @Column(name = "host")

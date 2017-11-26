@@ -10,9 +10,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 
-/**
- * Created by Arianna on 23/8/2017.
- */
 @Repository("userRepository")
 public interface UserRepository extends JpaRepository<UsersEntity,String> {
     UsersEntity findByUsername(String username);

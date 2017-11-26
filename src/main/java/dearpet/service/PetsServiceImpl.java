@@ -22,7 +22,7 @@ public class PetsServiceImpl implements PetsService {
 
     @Override
     public List<PetEntity> needhome(){
-        return petRepository.findAllByAskforhome(1);
+        return petRepository.findAllByAskforhome('1');
     }
 
 }
