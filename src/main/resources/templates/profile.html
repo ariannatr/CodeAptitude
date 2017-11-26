@@ -105,22 +105,18 @@
                 <table>
                     <tr>
                         <td class="mylabel"> Όνομα  </td>
-                        <td> </td>
                         <td > <span th:text="${user.name}"></span></td>
                     </tr>
                     <tr>
                         <td class="mylabel"> Επίθετο   </td>
-                        <td> </td>
                         <td> <span th:text="${user.surname}"></span> </td>
                     </tr>
                     <tr>
                         <td class="mylabel"> Τοποθεσία  </td>
-                        <td> </td>
                         <td> <span th:text="${user.location}"></span> </td>
                     </tr>
                     <tr>
                         <td class="mylabel"> Τηλέφωνο   </td>
-                        <td> </td>
                         <td> <span th:text="${user.telephone}"></span> </td>
                     </tr>
 
@@ -140,13 +136,13 @@
                     <table>
                         <tr>
                             <td class="mylabel"> PetName   </td>
-                            <td> </td>
                             <td > <span th:text="${user.petname}"></span></td>
                         </tr>
                         <tr>
                             <td>  <label class="anim">
                                 <form name="checkform" id="checkform" th:action="@{/lost}" method="POST">
-                                    <input type="submit" class="btn btn-danger" value="Lost"/>
+                                    <input type="button" class="btn btn-danger">
+                                    <span> Lost</span> </input>
                                 </form>
 
                             </label>
@@ -178,7 +174,7 @@
                                 <div class="panel-body">
                                     <div class="the-price">
                                         <h1>
-                                            €10<span class="subscript">/Μήνα</span></h1>
+                                            10€<span class="subscript">/Μήνα</span></h1>
                                     </div>
                                     <table class="table">
                                         <tr>
@@ -188,28 +184,33 @@
                                         </tr>
                                         <tr class="active">
                                             <td>
+                                                Ασφάλεια Θανάτου
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
                                                 Παροχές Νοσηλείας
                                             </td>
                                         </tr>
-                                        <tr >
+                                        <tr class="active">
                                             <td>
-                                              5%  Έκπτωση σε Συμβεβλημένες Ιατρικές Κλινικές
+                                                Έκπτωση σε Συμβεβλημένες Ιατρικές Κλινικές
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
                                             </td>
                                         </tr>
                                         <tr class="active">
                                             <td>
                                             </td>
                                         </tr>
-                                        <tr >
-                                            <td>
-                                            </td>
-                                        </tr>
                                     </table>
                                 </div>
-                                <div th:if="${(user.ins!='1')}" class="panel-footer">
+                                <div th:if="${(ins!=1)}" class="panel-footer">
                                     <a  href="http://www.jquery2dotnet.com" class="btn btn-success" role="button">Αναβάθμιση</a>
                                 </div>
-                                <div th:if="${(user.ins=='1')}" class="panel-footer">
+                                <div th:if="${(ins==1)}" class="panel-footer">
                                     <a  href="http://www.jquery2dotnet.com" class="btn btn-success" role="button">Το πακέτο μου</a>
                                 </div>
                             </div>
@@ -250,12 +251,12 @@
                                         </tr>
                                         <tr class="active">
                                             <td>
-                                              10%  Έκπτωση σε Συμβεβλημένες Ιατρικές Κλινικές
+                                                Έκπτωση σε Συμβεβλημένες Ιατρικές Κλινικές
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                            5%    Προσφορές σε Διατροφή και Καλωπισμό
+                                                Προσφορές σε Διατροφή και Καλωπισμό
                                             </td>
                                         </tr>
                                         <tr>
@@ -264,10 +265,10 @@
                                         </tr>
                                     </table>
                                 </div>
-                                <div th:if="${(user.ins!='2')}" class="panel-footer">
+                                <div th:if="${(ins!=2)}" class="panel-footer">
                                     <a  href="http://www.jquery2dotnet.com" class="btn btn-success" role="button">Αναβάθμιση</a>
                                     </div>
-                                <div th:if="${(user.ins=='2')}" class="panel-footer">
+                                <div th:if="${(ins==2)}" class="panel-footer">
                                     <a  href="http://www.jquery2dotnet.com" class="btn btn-success" role="button">Το πακέτο μου</a>
                                 </div>
                             </div>
@@ -281,8 +282,7 @@
                                 <div class="panel-body">
                                     <div class="the-price">
                                         <h1>
-                                            €35<span class="subscript">/Μήνα</span></h1>
-                                        <p>(€2 σε φιλοζωικές οργανώσεις,ΜΚΟ) </p>
+                                            35€<span class="subscript">/Μήνα</span></h1>
                                     </div>
                                     <table class="table">
                                         <tr>
@@ -302,12 +302,12 @@
                                         </tr>
                                         <tr class="active">
                                             <td>
-                                              15%  Έκπτωση σε Συμβεβλημένες Ιατρικές Κλινικές
+                                                Έκπτωση σε Συμβεβλημένες Ιατρικές Κλινικές
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                             10%   Προσφορές σε Διατροφή και Καλωπισμό
+                                                Προσφορές σε Διατροφή και Καλωπισμό
                                             </td>
                                         </tr>
                                         <tr class="active">
@@ -317,10 +317,10 @@
                                         </tr>
                                     </table>
                                 </div>
-                                <div th:if="${(user.ins!='3')}" class="panel-footer">
+                                <div th:if="${(user.ins!=3)}" class="panel-footer">
                                     <a  href="http://www.jquery2dotnet.com" class="btn btn-success" role="button">Αναβάθμιση</a>
                                     </div>
-                                <div th:if="${(user.ins=='3')}" class="panel-footer">
+                                <div th:if="${(user.ins==3)}" class="panel-footer">
                                     <a  href="http://www.jquery2dotnet.com" class="btn btn-success" role="button">Το πακέτο μου</a></div>
                             </div>
                         </div>

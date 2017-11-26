@@ -17,8 +17,9 @@ public interface UsersService {
    public ArrayList<UsersEntity> giveHome();
     public ArrayList<UsersEntity> lookHome();
    public  ArrayList<UsersEntity> findAll();
-
+    public List<UsersEntity> lostpets();
         public void updateUser(UsersEntity useron, UsersEntity user);
+
 
 
 }

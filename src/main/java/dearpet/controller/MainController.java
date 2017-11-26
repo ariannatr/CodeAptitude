@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
+
 /**
  * Created by Arianna on 25/11/2017.
  */
@@ -110,9 +112,8 @@ public class MainController {
             UsersEntity userS = userService.findByUsername(authentication.getName());
             modelAndView.addObject("uname", authentication.getName());
             modelAndView.addObject("user",userS);
-
-
-         //   System.out.print("Exw to zwaki "+petEntity.getPetname());
+            modelAndView.addObject("ins",userS.getIns());
+//            System.out.print("Exw to zwaki "+petEntity.getPetname());
             System.out.println("His name is"+userS.getName());
         }
         return modelAndView;
@@ -126,34 +127,29 @@ public class MainController {
         if (!authentication.getName().equals("anonymousUser")) {
             modelAndView.addObject("uname", authentication.getName());
             UsersEntity userS = userService.findByUsername(authentication.getName());
-
-            System.out.println("Pets name:"+userS.getPetname());
             modelAndView.addObject("uname", authentication.getName());
             modelAndView.addObject("user",userS);
-
+            modelAndView.addObject("ins",userS.getIns());
             System.out.println("His name is"+userS.getName());
         }
         return modelAndView;
     }
 
-    @RequestMapping(value={"/lost"}, method = RequestMethod.POST)
-    public ModelAndView lost(){
+    @RequestMapping(value={"/alllost"}, method = RequestMethod.GET)
+    public ModelAndView alllost(){
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("/profile");
+        modelAndView.setViewName("/lost");
         Authentication authentication = authenticationFacade.getAuthentication();
         if (!authentication.getName().equals("anonymousUser")) {
             System.out.println("mpike sto lost");
             modelAndView.addObject("uname", authentication.getName());
             UsersEntity userS = userService.findByUsername(authentication.getName());
-
-            System.out.println("Pets name:"+userS.getPetname());
             modelAndView.addObject("uname", authentication.getName());
             modelAndView.addObject("user",userS);
-
-           userS.setLost(1);
-            userService.saveUseronUpdate(userS);
             System.out.println("His name is"+userS.getName());
         }
+        List<UsersEntity> pets=userService.lostpets();
+        modelAndView.addObject("items",pets);
         return modelAndView;
     }
 }

@@ -57,6 +57,12 @@ public class UsersServiceImpl implements UsersService {
         System.out.println("Done.");
     }
 
+    @Override
+    public List<UsersEntity> lostpets(){
+        return userRepository.findAllByLost(1);
+    }
+
+
 
   /*  @Override
     public Page<UsersEntity> findUsers(){

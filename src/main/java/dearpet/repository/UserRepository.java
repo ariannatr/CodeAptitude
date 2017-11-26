@@ -9,6 +9,7 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Repository("userRepository")
 public interface UserRepository extends JpaRepository<UsersEntity,String> {
@@ -17,4 +18,6 @@ public interface UserRepository extends JpaRepository<UsersEntity,String> {
     ArrayList<UsersEntity> findAll();
     ArrayList<UsersEntity> findAllByAskforhome(Integer ask);
     ArrayList<UsersEntity> findAllByHost(Integer host);
+
+    List<UsersEntity>  findAllByLost(Integer lost);
 }
