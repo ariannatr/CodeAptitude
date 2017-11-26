@@ -1,6 +1,8 @@
 package dearpet.service;
 
+import dearpet.model.PetEntity;
 import dearpet.model.UsersEntity;
+import dearpet.repository.PetRepository;
 import dearpet.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -11,10 +13,16 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Service("usersService")
 public class UsersServiceImpl implements UsersService {
+
+
+    @Qualifier("petRepository")
+    @Autowired
+    private PetRepository petRepository;
 
     @Qualifier("userRepository")
     @Autowired
@@ -29,19 +37,12 @@ public class UsersServiceImpl implements UsersService {
         return userRepository.findByUsername(username);
         //return null;
     }
-/*
-    @Override
-    public  ParentEntity findRenter(RenterPK renterPKPk){
-        RenterEntity parent = renterRepository.findOne(renterPk);
-        return parent;
-    }
 
     @Override
-    public OwnerEntity findProvider(OwnerPK ownerPk){
-        OwnerEntity owner = ownerRepository.findOne(providerPk);
-        return owner;
+    public List<UsersEntity> giveHome(){
+        return userRepository.findAllByHost(1);
     }
-*/
+
 
     @Override
     public void saveUser(UsersEntity user,String photopath) {

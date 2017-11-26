@@ -10,9 +10,11 @@
 	SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola web design" />
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
     <!-- Custom Theme files -->
-    <link th:href="@{css/bootstrap.css}" type="text/css" rel="stylesheet" media="all">
-    <link th:href="@{css/style.css}" type="text/css" rel="stylesheet" media="all">
-    <link th:href="@{css/font-awesome.css}" rel="stylesheet"> <!-- font-awesome icons -->
+    <link th:href="@{/css/bootstrap.css}" type="text/css" rel="stylesheet" media="all">
+    <link th:href="@{/css/style.css}" type="text/css" rel="stylesheet" media="all">
+    <link th:href="@{/css/font-awesome.css}" rel="stylesheet"> <!-- font-awesome icons -->
+    <link th:href="@{/css/proftabs.css}" rel="stylesheet"> <!-- font-awesome icons -->
+
     <link rel="stylesheet" th:href="@{css/flexslider.css}" type="text/css" media="screen" property="" />
     <!-- //Custom Theme files -->
     <!-- web-fonts -->
@@ -29,12 +31,12 @@
             <div class="container">
                 <div class="agile_header_grid">
                     <div class="header-mdl agileits-logo">
-                        <img th:src="@{/images/logo.png}" href="index.html"></img>
+                        <img th:src="@{images/logo.png}" href="index.html"></img>
                     </div>
                     <div class="agileits_w3layouts_sign_in">
                         <ul>
                             <li th:if ="${(uname == null )}"><a href="#myModal2" data-toggle="modal" class="play-icon">Σύνδεση</a></li>
-                            <li th:if ="${(uname != null)}"><a th:href="@{/profile}"   class="play-icon">Προφίλ</a></li>
+                            <li th:if ="${(uname != null)}"><a th:href="@{/profile}"  class="play-icon">Προφίλ</a></li>
                             <li th:if ="${(uname != null)}"><a th:href="@{/logout}"  class="play-icon">Αποσύνδεση</a></li>
                         </ul>
                     </div>
@@ -80,65 +82,82 @@
         <!-- //header -->
     </div>
 </div>
+
+
 <div class="grid_3 grid_4">
-    <h3 class="w3ls-hdg">Συμπληρώστε τα πεδία για εκδήλωση ενδιαφέροντος κι εμείς θα επικοινωνήσουμε μαζί σας.</h3>
-    <div class="tab-content">
-        <div class="tab-pane active" id="horizontal-form">
-            <form class="form-horizontal">
-                <div class="form-group">
-                    <label for="focusedinput" class="col-sm-2 control-label">Όνομα Επιχείρησης</label>
-                    <div class="col-sm-8">
-                        <input type="text" class="form-control1" id="focusedinput" placeholder="Όνομα Επιχείρησης">
-                    </div>
+    <div class="tabset">
+        <!-- Tab 1 -->
+        <input type="radio" name="tabset" id="tab1" aria-controls="marzen" checked>
+        <label for="tab1">Το Προφίλ Μου</label>
+        <!-- Tab 2 -->
+        <input type="radio" name="tabset" id="tab2" aria-controls="rauchbier">
+        <label for="tab2">Το Κατοικίδιο μου</label>
+        <!-- Tab 3 -->
+        <input type="radio" name="tabset" id="tab3" aria-controls="dunkles">
+        <label for="tab3">Η Ασφάλισή μου</label>
 
-                </div>
-                <div class="form-group">
-                    <label for="selector1" class="col-sm-2 control-label">Τύπος Επιχείρησης</label>
-                    <div class="col-sm-8"><select name="selector1" id="selector1" class="form-control1">
-                        <option>Επιλέξτε από τα παρακάτω:</option>
-                        <option>Κτηνιατρείο</option>
-                        <option>Εκπαίδευση</option>
-                        <option>Διατροφή</option>
-                        <option>Καλλωπισμός</option>
-                    </select></div>
-                </div>
+        <div class="tab-panels">
+            <section id="marzen" class="tab-panel">
+                <h2>Το προφίλ μου</h2>
+                <table>
+                    <tr>
+                        <td class="mylabel"> Όνομα  </td>
+                        <td > <span th:text="${user.name}"></span></td>
+                    </tr>
+                    <tr>
+                        <td class="mylabel"> Επίθετο   </td>
+                        <td> <span th:text="${user.surname}"></span> </td>
+                    </tr>
+                    <tr>
+                        <td class="mylabel"> Τοποθεσία  </td>
+                        <td> <span th:text="${user.location}"></span> </td>
+                    </tr>
+                    <tr>
+                        <td class="mylabel"> Τηλέφωνο   </td>
+                        <td> <span th:text="${user.telephone}"></span> </td>
+                    </tr>
 
-                <div class="form-group">
-                    <label for="txtarea1" class="col-sm-2 control-label">ΠΛηροφορίες</label>
-                    <div class="col-sm-8"><textarea name="txtarea1" id="txtarea1" cols="50" rows="4" class="form-control1"></textarea></div>
-                </div>
+                </table>
+                <form class="login" th:action="@{/host}" method="POST">
+                    <p> Παρέχω φιλοξενία για τις μέρες :</p>
+                    <input required name="apoDate" type="text"  id="datepicker1" style="width: 40%;" placeholder="Από" data-date-format='yyyy-mm-dd' >
+                    <input required name="toDate" type="text" id="datepicker2" style="width: 40%;" placeholder="Εως" data-date-format='yyyy-mm-dd' >
+                    <div class="w3ls-submit">
+                        <input type="submit" value="Αίτηση">
+                    </div>
+                </form>
+            </section>
+            <section id="rauchbier" class="tab-panel">
+                <h2>Το κατοικίδιό μου</h2>
+                <table>
+                    <tr>
+                        <td class="mylabel"> PetName   </td>
+                        <!--<td > <span th:text="${pet.petname}"></span></td>-->
+                    </tr>
+                    <tr>
+                        <td>  <label class="anim">
+                            <input type="checkbox" class="checkbox">
+                            <span> Lost</span>
+                        </label>
+                        </td>
+                        <td></td>
+                    </tr>
 
-
-                <div class="form-group">
-                    <label for="smallinput" class="col-sm-2 control-label label-input-sm">Περιοχή</label>
-                    <div class="col-sm-8">
-                        <input type="text" class="form-control1 input-sm" id="smallinput" placeholder="Περιοχή">
+                </table>
+                <form class="login" th:action="@{/askfor}" method="POST">
+                    <p> Θέλω σπίτι για τις μέρες :</p>
+                    <input name="apoDate" type="text"  id="datepicker1" style="width: 40%;" placeholder="Από" data-date-format='yyyy-mm-dd' >
+                    <input name="toDate" type="text" id="datepicker2" style="width: 40%;" placeholder="Εως" data-date-format='yyyy-mm-dd' >
+                    <div class="w3ls-submit">
+                        <input type="submit" value="Αίτηση">
                     </div>
-                </div>
-                <div class="form-group">
-                    <label for="mediuminput" class="col-sm-2 control-label">Διεύθυνση</label>
-                    <div class="col-sm-8">
-                        <input type="text" class="form-control1" id="mediuminput" placeholder="Διεύθυνση">
-                    </div>
-                </div>
-                <div class="form-group mb-n">
-                    <label for="largeinput" class="col-sm-2 control-label label-input-lg">Email</label>
-                    <div class="col-sm-8">
-                        <input type="text" class="form-control1 input-lg" id="largeinput" placeholder="Email">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="mediuminput" class="col-sm-2 control-label">Τηλέφωνο</label>
-                    <div class="col-sm-8">
-                        <input type="text" class="form-control1" id="telephone" placeholder="Tηλέφωνο">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-10">
-                    <input class="btn btn-primary btn-default" style="float: right" type="submit" value="Δήλωση">
-                    </div>
-                </div>
-            </form>
+                </form>
+            </section>
+            <section id="dunkles" class="tab-panel">
+                <h2>6C. Dunkles Bock</h2>
+                <p><strong>Overall Impression:</strong> A dark, strong, malty German lager beer that emphasizes the malty-rich and somewhat toasty qualities of continental malts without being sweet in the finish.</p>
+                <p><strong>History:</strong> Originated in the Northern German city of Einbeck, which was a brewing center and popular exporter in the days of the Hanseatic League (14th to 17th century). Recreated in Munich starting in the 17th century. The name “bock” is based on a corruption of the name “Einbeck” in the Bavarian dialect, and was thus only used after the beer came to Munich. “Bock” also means “Ram” in German, and is often used in logos and advertisements.</p>
+            </section>
         </div>
     </div>
 </div>
@@ -240,8 +259,7 @@
         </div>
     </div>
 </div>
-
-
+<!-- //modal sign in -->
 <!-- //modal sign in -->
 <!-- js -->
 <script th:src="@{/js/jquery-2.2.3.min.js}"></script>

@@ -45,10 +45,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 				.antMatchers("/about").permitAll()
 				.antMatchers("/error").permitAll()
 				.antMatchers("/request").permitAll()
-                .antMatchers("/search","/search2").permitAll()
 				.antMatchers("/grooming").permitAll()
 				.antMatchers("/doctor").permitAll()
                 .antMatchers("/gallery").permitAll()
+				.antMatchers("/associate").permitAll()
+                .antMatchers("/error").permitAll()
+				.antMatchers("/profile").permitAll()
 				.anyRequest().authenticated().and().anonymous().and()
                 .csrf().disable()
                 .formLogin()
@@ -81,7 +83,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Override
 	public void configure(WebSecurity web) throws Exception {
 	    web.ignoring()
-	       .antMatchers("/fragments/**","/resources/**","/static/**","/static/js/**", "/css/**", "/js/**", "/images/**","/scripts/**","/vendor/**");
-		web.ignoring().antMatchers("/images/**","/jquery/**");
+	       .antMatchers(/*"/fragments/**",*/"/resources/**","/static/**","/static/js/**", "/css/**", "/js/**", "/images/**","/scripts/**","/vendor/**","/fonts/**");
 	}
 }

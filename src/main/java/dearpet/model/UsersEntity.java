@@ -11,7 +11,7 @@ import java.util.HashSet;
  */
 @Entity
 @Table(name = "user", schema = "mydb")
-public class UsersEntity implements Serializable {
+public class UsersEntity  implements Serializable{
     private String username;
     private String password;
     private String name;
@@ -114,21 +114,21 @@ public class UsersEntity implements Serializable {
 
     @Basic
     @Column(name = "fromDate")
-    public String getFromdate() {
+    public String getFromDate() {
         return fromDate;
     }
 
-    public void setFromdate(String fromDate) {
+    public void setFromDate(String fromDate) {
         this.fromDate = fromDate;
     }
 
     @Basic
     @Column(name = "toDate")
-    public String getTodate() {
+    public String getToDate() {
         return toDate;
     }
 
-    public void setTodate(String toDate) {
+    public void setToDate(String toDate) {
         this.toDate = toDate;
     }
 
@@ -168,15 +168,29 @@ public class UsersEntity implements Serializable {
         return result;
     }
 
-    @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    private Set<PetEntity> pets= new HashSet<>(0);
 
-    public Set<PetEntity> getPets() {
-        return pets;
+
+    @OneToOne(fetch = FetchType.LAZY,mappedBy = "usersByUsersUsername")
+    private PetEntity petEntity;
+
+    public PetEntity getPetEntity() {
+        return petEntity;
     }
 
-    public void setPets(Set<PetEntity> pets) {
-        this.pets = pets;
+    public void setPetEntity(PetEntity petEntity) {
+        this.petEntity = petEntity;
     }
+
+//    @OneToMany(fetch = FetchType.LAZY, cascade= CascadeType.ALL)
+//    @JoinColumn(name="username")
+//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "username")
+//  private Set<PetEntity> pets= new HashSet<>(0);
+//    public Set<PetEntity> getPets() {
+//        return pets;
+//    }
+//
+//    public void setPets(Set<PetEntity> pets) {
+//        this.pets = pets;
+//    }
     
 }

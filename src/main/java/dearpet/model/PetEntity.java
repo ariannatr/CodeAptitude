@@ -7,8 +7,8 @@ import java.io.Serializable;
  */
 @Entity
 @Table(name = "pet", schema = "mydb")
-public class PetEntity implements Serializable{
-    private Integer id;
+public class PetEntity implements  Serializable{
+
     private String petname;
     private int lost;
     private String photo;
@@ -18,8 +18,9 @@ public class PetEntity implements Serializable{
 
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name="id")
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private Integer id;
     public Integer getId() {
         return id;
     }
@@ -113,16 +114,27 @@ public class PetEntity implements Serializable{
         return result;
     }
 
-    @ManyToOne
-    @JoinColumn(name="user_username")
-    private UsersEntity usersEntity;
+    @OneToOne
+    @JoinColumn(name = "id", referencedColumnName = "pet_id")
+    private UsersEntity usersByUsersUsername;
 
-    public UsersEntity getUsersEntity() {
-        return usersEntity;
+    public UsersEntity getUsersByUsersUsername() {
+        return usersByUsersUsername;
     }
 
-    public void setUsersEntity(UsersEntity usersEntity) {
-        this.usersEntity = usersEntity;
+    public void setUsersByUsersUsername(UsersEntity usersByUsersUsername) {
+        this.usersByUsersUsername = usersByUsersUsername;
     }
+//    @ManyToOne
+//    @JoinColumn(name = "user")
+//    private UsersEntity usersEntity;
+//
+//    public UsersEntity getUsersEntity() {
+//        return usersEntity;
+//    }
+//
+//    public void setUsersEntity(UsersEntity usersEntity) {
+//        this.usersEntity = usersEntity;
+//    }
 
 }

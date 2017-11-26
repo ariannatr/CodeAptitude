@@ -1,6 +1,7 @@
 package dearpet.controller;
 
 import dearpet.authentication.IAuthenticationFacade;
+import dearpet.model.PetEntity;
 import dearpet.model.UsersEntity;
 import dearpet.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -95,6 +96,41 @@ public class MainController {
             modelAndView.addObject("uname", authentication.getName());
             modelAndView.addObject("user",userS);
 
+            System.out.println("His name is"+userS.getName());
+        }
+        return modelAndView;
+    }
+
+    @RequestMapping(value={"/profile"}, method = RequestMethod.GET)
+    public ModelAndView showprof(){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("/profile");
+        Authentication authentication = authenticationFacade.getAuthentication();
+        if (!authentication.getName().equals("anonymousUser")) {
+            modelAndView.addObject("uname", authentication.getName());
+            UsersEntity userS = userService.findByUsername(authentication.getName());
+            PetEntity petEntity=userS.getPetEntity();
+            modelAndView.addObject("uname", authentication.getName());
+            modelAndView.addObject("user",userS);
+            modelAndView.addObject("pet",petEntity);
+//            System.out.print("Exw to zwaki "+petEntity.getPetname());
+            System.out.println("His name is"+userS.getName());
+        }
+        return modelAndView;
+    }
+
+    @RequestMapping(value={"/profile"}, method = RequestMethod.POST)
+    public ModelAndView postprof(){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("/prof");
+        Authentication authentication = authenticationFacade.getAuthentication();
+        if (!authentication.getName().equals("anonymousUser")) {
+            modelAndView.addObject("uname", authentication.getName());
+            UsersEntity userS = userService.findByUsername(authentication.getName());
+            PetEntity petEntity=userS.getPetEntity();
+            modelAndView.addObject("uname", authentication.getName());
+            modelAndView.addObject("user",userS);
+            modelAndView.addObject("pet",petEntity);
             System.out.println("His name is"+userS.getName());
         }
         return modelAndView;

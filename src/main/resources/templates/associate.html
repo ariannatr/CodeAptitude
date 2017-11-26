@@ -39,7 +39,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <!--</div>-->
                     <div class="agileits_w3layouts_sign_in">
                         <ul>
-                            <li><a href="#myModal2" data-toggle="modal" class="play-icon">Σύνδεση</a></li>
+                            <li th:if ="${(uname == null )}"><a href="#myModal2" data-toggle="modal" class="play-icon">Σύνδεση</a></li>
+                            <li th:if ="${(uname != null)}"><a th:href="@{/profile}" class="play-icon">Προφίλ</a></li>
+                            <li th:if ="${(uname != null)}"><a th:href="@{/logout}"  class="play-icon">Αποσύνδεση</a></li>
                         </ul>
                     </div>
                     <div class="clearfix"> </div>
@@ -59,13 +61,20 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             <ul class="nav navbar-nav cl-effect-16">
                                 <li><a th:href="@{/index}" class="active" data-hover="Αρχική">Αρχική</a></li>
 
-                                <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Αιτήσεις <span class="caret"></span></a>
+                                <li><a  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Φιλοξενία <span class="caret"></span></a>
                                     <ul class="dropdown-menu">
-                                        <li><a th:href="@{/gallery}" data-hover="Ιδιοκτήτες">Ιδιοκτήτες</a></li>
-                                        <li><a th:href="@{/gallery}" data-hover="Short Codes">Συνεργάτες</a></li>
+                                        <li><a th:href="@{/lookfor}" data-hover="Ψάχνουν Σπίτι">Ψάχνουν Σπίτι</a></li>
+                                        <li><a th:href="@{/givefor}" data-hover="Παρέχουν Σπίτι">Παρέχουν Σπίτι</a></li>
                                     </ul>
                                 </li>
-                                <li><a th:href="@{/gallery}" data-hover="Gallery">Blog</a></li>
+                                <li><a  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Συνεργάτες<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a th:href="@{/grooming}" data-hover="Καλλωπισμός">Καλλωπισμός</a></li>
+                                        <li><a th:href="@{/doctor}" data-hover="Ιατροί">Ιατροί</a></li>
+                                    </ul>
+                                </li>
+                                <li><a th:href="@{/request}" data-hover="Αιτήσεις">Αιτήσεις</a></li>
+                                <li><a th:href="@{/gallery}" data-hover="Βlog">Blog</a></li>
                                 <li><a th:href="@{/about}" data-hover="About">About</a></li>
                             </ul>
                             <div class="clearfix"> </div>
@@ -82,17 +91,18 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <div class="gallery team">
     <div class="container">
         <h3 class="agileits-title w3title2">Οι Συνεργάτες Μας</h3>
-        <div class="agile_gallery_grids">
-            <div class="col-sm-4 col-xs-4 agile_gallery_grid" th:if ="${(items!=null)}">
-                <div class="w3ls_gallery_grid" th:each="assoc : ${items} ">
+        <div class="agile_gallery_grids" th:if ="${(items!=null)}">
+            <div class="col-sm-4 col-xs-4 agile_gallery_grid" th:each="assoc : ${items} ">
+                <div class="w3ls_gallery_grid" >
                     <a th:href="@{/images/g1.jpg}" class="lsb-preview wthree_p_grid" data-lsb-group="header">
                         <img th:src="@{/images/g1.jpg}" alt=" " class="img-responsive" />
                         <div class="agileinfo_content_wrap">
                             <div class="agileits_content">
                                 <h3 th:text="${assoc.town}"></h3>
-                                <p th:text="${assoc.address}">Ne nam facilisis adolescens faucibus.</p>
+                                <p th:text="${assoc.address}">.</p>
                             </div>
                         </div>
+                        <div class="alert alert-success" style="text-align: center;"> Έκπτωση 20% <br></div>
                     </a>
                 </div>
             </div>
@@ -166,7 +176,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 </div>
 <!-- //modal-about -->
 <!-- modal sign in  -->
-<div th:if ="${(uname != null )}"class="modal bnr-modal about-modal w3-agileits fade" id="myModal3" tabindex="-1" role="dialog">
+<!-- modal sign in  -->
+<div class="modal bnr-modal about-modal w3-agileits fade" id="myModal2" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -176,71 +187,34 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <div class="sap_tabs">
                     <div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
                         <ul class="resp-tabs-list">
-                            <li class="resp-tab-item" aria-controls="tab_item-0"><span>To προφιλ μου</span></li>
-                            <li class="resp-tab-item" aria-controls="tab_item-1"><span>Το κατοικιδιο μου</span></li>
+                            <li class="resp-tab-item" aria-controls="tab_item-0"><span>Συνδεση</span></li>
                         </ul>
                         <div class="clearfix"> </div>
                         <div class="resp-tabs-container">
                             <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
                                 <div class="agileits-login">
-                                    <table>
-                                        <tr>
-                                            <td class="mylabel"> Name   </td>
-                                            <td > <span th:text="${user.name}"></span></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="mylabel"> Surname   </td>
-                                            <td> <span th:text="${user.surname}"></span> </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="mylabel"> Location  </td>
-                                            <td> <span th:text="${user.location}"></span> </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="mylabel"> Telephone   </td>
-                                            <td> <span th:text="${user.telephone}"></span> </td>
-                                        </tr>
-
-                                    </table>
-                                    <!--form class="login" th:action="@{/host}" method="POST">
-                                        <p> Παρέχω φιλοξενία για τις μέρες :</p>
-                                        <input name="apoDate" type="text"  id="datepicker1" style="width: 40%;" placeholder="Από" data-date-format='yyyy-mm-dd' >
-                                        <input name="toDate" type="text" id="datepicker2" style="width: 40%;" placeholder="Εως" data-date-format='yyyy-mm-dd' >
-                                        <div class="w3ls-submit">
-                                            <input type="submit" value="Αίτηση">
+                                    <form th:action="@{/login}" method="post">
+                                        <input type="text" class="username" name="username" placeholder="username" required=""/>
+                                        <input type="password" class="password" name="password" placeholder="Κωδικός" required=""/>
+                                        <div class="wthree-text">
+                                            <ul>
+                                                <li>
+                                                    <label class="anim">
+                                                        <input type="checkbox" class="checkbox">
+                                                        <span> Να με θυμάσαι ;</span>
+                                                    </label>
+                                                </li>
+                                                <li> <a>Ξέχασες τον κωδικό ;</a> </li>
+                                            </ul>
+                                            <div class="clearfix"> </div>
                                         </div>
-                                    </form-->
+                                        <div class="w3ls-submit">
+                                            <input type="submit" value="Συνδεση">
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
-                            <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-1">
-                                <div class="login-top sign-top">
-                                    <div class="agileits-login">
-                                        <table>
-                                            <tr>
-                                                <td class="mylabel"> PetName   </td>
-                                                <td > <span th:text="${user.petname}"></span></td>
-                                            </tr>
-                                            <tr>
-                                                <td>  <label class="anim">
-                                                    <input type="checkbox" class="checkbox">
-                                                    <span> Lost</span>
-                                                </label>
-                                                </td>
-                                                <td></td>
-                                            </tr>
 
-                                        </table>
-                                        <!--form class="login" th:action="@{/askfor}" method="POST">
-                                            <p> Θέλω σπίτι για τις μέρες :</p>
-                                            <input name="apoDate" type="text"  id="datepicker1" style="width: 40%;" placeholder="Από" data-date-format='yyyy-mm-dd' >
-                                            <input name="toDate" type="text" id="datepicker2" style="width: 40%;" placeholder="Εως" data-date-format='yyyy-mm-dd' >
-                                            <div class="w3ls-submit">
-                                                <input type="submit" value="Αίτηση">
-                                            </div>
-                                        </form-->
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                     <div class="clearfix"> </div>
@@ -249,6 +223,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         </div>
     </div>
 </div>
+<!-- //modal sign in -->
+
+
 <!-- //modal sign in -->
 <!-- js -->
 <script th:src="@{/js/jquery-2.2.3.min.js}"></script>

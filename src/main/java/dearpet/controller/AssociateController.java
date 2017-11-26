@@ -104,7 +104,6 @@ public class AssociateController {
             UsersEntity userS = userService.findByUsername(authentication.getName());
             modelAndView.addObject("uname", authentication.getName());
             modelAndView.addObject("user",userS);
-
             System.out.println("His name is"+userS.getName());
         }
         return modelAndView;
