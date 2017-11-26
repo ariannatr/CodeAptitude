@@ -95,10 +95,10 @@
 						<span id="typed" style="white-space:pre;"></span>
 					</div>
 				</div>
-				<div class="agile_social_icons_banner">
-					<ul class="agileits_social_list">
-						<li><a th:href="@{/index}" class="w3_agile_facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-						<li><a th:href="@{/index}" class="agile_twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+				<div class="agileits_w3layouts_sign_in">
+					<ul >
+
+						<li><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#donate">ΚΑΝΕ ΔΩΡΕΑ</button></li>
 					</ul>
 				</div>
 			</div>
@@ -106,29 +106,6 @@
 		<!-- //banner-text -->
 	</div>
 </div>
-<!-- //banner -->
-<!-- banner-bottom -->
-<!--<div class="banner-bottom">-->
-	<!--<div class="col-md-4 bnr-agileitsgrids">-->
-		<!--<div class="agileinfo_banner_bottom_pos">-->
-			<!--<div class="w3_agileits_banner_bottom_pos_grid">-->
-				<!--<div class="col-xs-4 wthree_banner_bottom_grid_left">-->
-					<!--<div class="agile_banner_bottom_grid_left_grid hvr-radial-out">-->
-						<!--<i class="fa fa-clone" aria-hidden="true"></i>-->
-					<!--</div>-->
-				<!--</div>-->
-				<!--&lt;!&ndash;div class="col-xs-8 wthree_banner_bottom_grid_right">-->
-                    <!--<h4>Free Consultation</h4>-->
-                    <!--<p>Morbi viverra lacus commodo felis semper, eu iaculis lectus feugiat.</p>-->
-                <!--</div>-->
-                <!--<div class="clearfix"> </div&ndash;&gt;-->
-			<!--</div>-->
-		<!--</div>-->
-	<!--</div>-->
-
-	<!--<div class="clearfix"> </div>-->
-<!--</div>-->
-<!-- //banner-bottom -->
 <!-- welcome -->
 <div class="welcome">
 	<div class="container">
@@ -333,6 +310,42 @@
 	</div>
 </div>
 <!-- //modal profile in -->
+<div id="donate" class="modal fade" role="dialog">
+	<div class="modal-dialog">
+
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Κάνε δωρεά κι εμείς θα διπλασιάσουμε την προσφορά σου</h4>
+			</div>
+			<div class="modal-body">
+				<form  method="post">
+					<div class="form-group">
+						<label for="selector1" class="col-sm-4 control-label"> Φιλοζωική/ΜΚΟ</label>
+						<div class="col-sm-10"><select name="selector1" id="selector1" class="form-control1">
+							<option disabled>Επιλέξτε από τα παρακάτω:</option>
+							<option>Ζωοφιλική Ένωση Ηλιούπολης</option>
+							<option>Αρκτούρος</option>
+							<option>Animal Aid</option>
+						</select></div>
+					</div>
+					<div class="form-group">
+						<label for="poso" class="col-sm-4 control-label"> €</label>
+						<input  type="number"  id="poso" style="width: 40%;" placeholder="Ποσό"  >
+
+					</div>
+					<div class="w3ls-submit">
+						<input type="submit" value="Δωρεά">
+					</div>
+				</form>
+			</div>
+
+		</div>
+
+	</div>
+</div>
+
 <!-- js -->
 <script th:src="@{/js/jquery-2.2.3.min.js}"></script>
 <!-- //js -->

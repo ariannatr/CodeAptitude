@@ -37,7 +37,26 @@ public class MainController {
         }
         return modelAndView;
     }
+    @RequestMapping(value={"/lost"}, method = RequestMethod.POST)
+    public ModelAndView lost(){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("/profile");
+        Authentication authentication = authenticationFacade.getAuthentication();
+        if (!authentication.getName().equals("anonymousUser")) {
+            System.out.println("mpike sto lost");
+            modelAndView.addObject("uname", authentication.getName());
+            UsersEntity userS = userService.findByUsername(authentication.getName());
 
+            System.out.println("Pets name:"+userS.getPetname());
+            modelAndView.addObject("uname", authentication.getName());
+            modelAndView.addObject("user",userS);
+
+            userS.setLost(1);
+            userService.saveUseronUpdate(userS);
+            System.out.println("His name is"+userS.getName());
+        }
+        return modelAndView;
+    }
     @RequestMapping(value={"/about"}, method = RequestMethod.GET)
     public ModelAndView about(){
         ModelAndView modelAndView = new ModelAndView();

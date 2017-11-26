@@ -98,30 +98,38 @@
         <!-- Tab 3 -->
         <input type="radio" name="tabset" id="tab3" aria-controls="dunkles">
         <label for="tab3">Η Ασφάλισή μου</label>
+        <!-- Tab 4 -->
+        <input type="radio" name="tabset" id="tab4" aria-controls="dunkles2">
+        <label for="tab4">Σύστησέ μας</label>
 
         <div class="tab-panels">
             <section id="marzen" class="tab-panel">
-                <h2>Το προφίλ μου</h2>
-                <table>
+                <h2 style="text-align: center;">Το προφίλ μου</h2>
+                </br>
+                <table style="align-content: center;">
                     <tr>
                         <td class="mylabel"> Όνομα  </td>
+                        <td> </td>
                         <td > <span th:text="${user.name}"></span></td>
                     </tr>
                     <tr>
                         <td class="mylabel"> Επίθετο   </td>
+                        <td> </td>
                         <td> <span th:text="${user.surname}"></span> </td>
                     </tr>
                     <tr>
                         <td class="mylabel"> Τοποθεσία  </td>
+                        <td> </td>
                         <td> <span th:text="${user.location}"></span> </td>
                     </tr>
                     <tr>
                         <td class="mylabel"> Τηλέφωνο   </td>
+                        <td> </td>
                         <td> <span th:text="${user.telephone}"></span> </td>
                     </tr>
 
                 </table>
-                <form class="login" th:action="@{/host}" method="POST">
+                <form class="login" style="text-align: center;" th:action="@{/host}" method="POST">
                     <p> Παρέχω φιλοξενία για τις μέρες :</p>
                     <input required name="apoDate" type="text"  id="datepicker1" style="width: 40%;" placeholder="Από" data-date-format='yyyy-mm-dd' >
                     <input required name="toDate" type="text" id="datepicker2" style="width: 40%;" placeholder="Εως" data-date-format='yyyy-mm-dd' >
@@ -131,29 +139,30 @@
                 </form>
             </section>
             <section id="rauchbier" class="tab-panel">
-                <h2>Το κατοικίδιό μου</h2>
+                <h2 style="text-align: center;">Το κατοικίδιό μου</h2>
 
-                    <table>
-                        <tr>
-                            <td class="mylabel"> PetName   </td>
-                            <td > <span th:text="${user.petname}"></span></td>
-                        </tr>
-                        <tr>
-                            <td>  <label class="anim">
-                                <form name="checkform" id="checkform" th:action="@{/lost}" method="POST">
-                                    <input type="button" class="btn btn-danger">
-                                    <span> Lost</span> </input>
-                                </form>
+                <table style="align-content: center;">
+                    <tr>
+                        <td class="mylabel"> PetName   </td>
+                        <td> </td>
+                        <td > <span th:text="${user.petname}"></span></td>
+                    </tr>
+                    <tr>
+                        <td>  <label class="anim">
+                            <form name="checkform" id="checkform" th:action="@{/lost}" method="POST">
+                                <input type="submit" class="btn btn-danger" value="Lost"/>
+                            </form>
 
-                            </label>
-                            </td>
-                            <td></td>
-                        </tr>
+                        </label>
+                        </td>
+                        <td></td>
+                    </tr>
 
-                    </table>
+                </table>
 
-                <form class="login" th:action="@{/askfor}" method="POST">
+                <form class="login" style="text-align: center;" th:action="@{/askfor}" method="POST">
                     <p> Θέλω σπίτι για τις μέρες :</p>
+                    </br>
                     <input name="apoDate" type="text"  id="datepicker3" style="width: 40%;" placeholder="Από" data-date-format='yyyy-mm-dd' >
                     <input name="toDate" type="text" id="datepicker4" style="width: 40%;" placeholder="Εως" data-date-format='yyyy-mm-dd' >
                     <div class="w3ls-submit">
@@ -162,7 +171,8 @@
                 </form>
             </section>
             <section id="dunkles" class="tab-panel">
-                <h2>Σύγκριση Πακέτων</h2>
+                <h2  style="text-align: center">Σύγκριση Πακέτων</h2>
+                </br>
                 <div class="container">
                     <div class="row">
                         <div class="col-xs-12 col-md-3">
@@ -174,7 +184,7 @@
                                 <div class="panel-body">
                                     <div class="the-price">
                                         <h1>
-                                            10€<span class="subscript">/Μήνα</span></h1>
+                                            €10<span class="subscript">/Μήνα</span></h1>
                                     </div>
                                     <table class="table">
                                         <tr>
@@ -184,33 +194,28 @@
                                         </tr>
                                         <tr class="active">
                                             <td>
-                                                Ασφάλεια Θανάτου
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
                                                 Παροχές Νοσηλείας
                                             </td>
                                         </tr>
-                                        <tr class="active">
+                                        <tr >
                                             <td>
-                                                Έκπτωση σε Συμβεβλημένες Ιατρικές Κλινικές
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
+                                                5%  Έκπτωση σε Συμβεβλημένες Ιατρικές Κλινικές
                                             </td>
                                         </tr>
                                         <tr class="active">
+                                            <td>
+                                            </td>
+                                        </tr>
+                                        <tr >
                                             <td>
                                             </td>
                                         </tr>
                                     </table>
                                 </div>
-                                <div th:if="${(ins!=1)}" class="panel-footer">
+                                <div th:if="${(user.ins!='1')}" class="panel-footer">
                                     <a  href="http://www.jquery2dotnet.com" class="btn btn-success" role="button">Αναβάθμιση</a>
                                 </div>
-                                <div th:if="${(ins==1)}" class="panel-footer">
+                                <div th:if="${(user.ins=='1')}" class="panel-footer">
                                     <a  href="http://www.jquery2dotnet.com" class="btn btn-success" role="button">Το πακέτο μου</a>
                                 </div>
                             </div>
@@ -251,12 +256,12 @@
                                         </tr>
                                         <tr class="active">
                                             <td>
-                                                Έκπτωση σε Συμβεβλημένες Ιατρικές Κλινικές
+                                                10%  Έκπτωση σε Συμβεβλημένες Ιατρικές Κλινικές
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                Προσφορές σε Διατροφή και Καλωπισμό
+                                                5%  Προσφορές σε Διατροφή και Καλωπισμό
                                             </td>
                                         </tr>
                                         <tr>
@@ -265,10 +270,10 @@
                                         </tr>
                                     </table>
                                 </div>
-                                <div th:if="${(ins!=2)}" class="panel-footer">
+                                <div th:if="${(user.ins!='2')}" class="panel-footer">
                                     <a  href="http://www.jquery2dotnet.com" class="btn btn-success" role="button">Αναβάθμιση</a>
-                                    </div>
-                                <div th:if="${(ins==2)}" class="panel-footer">
+                                </div>
+                                <div th:if="${(user.ins=='2')}" class="panel-footer">
                                     <a  href="http://www.jquery2dotnet.com" class="btn btn-success" role="button">Το πακέτο μου</a>
                                 </div>
                             </div>
@@ -282,7 +287,8 @@
                                 <div class="panel-body">
                                     <div class="the-price">
                                         <h1>
-                                            35€<span class="subscript">/Μήνα</span></h1>
+                                            €35<span class="subscript">/Μήνα</span></h1>
+                                        <p>(€2 σε φιλοζωικές οργανώσεις,ΜΚΟ) </p>
                                     </div>
                                     <table class="table">
                                         <tr>
@@ -302,12 +308,12 @@
                                         </tr>
                                         <tr class="active">
                                             <td>
-                                                Έκπτωση σε Συμβεβλημένες Ιατρικές Κλινικές
+                                                15%  Έκπτωση σε Συμβεβλημένες Ιατρικές Κλινικές
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                Προσφορές σε Διατροφή και Καλωπισμό
+                                                10%   Προσφορές σε Διατροφή και Καλωπισμό
                                             </td>
                                         </tr>
                                         <tr class="active">
@@ -317,30 +323,30 @@
                                         </tr>
                                     </table>
                                 </div>
-                                <div th:if="${(user.ins!=3)}" class="panel-footer">
+                                <div th:if="${(user.ins!='3')}" class="panel-footer">
                                     <a  href="http://www.jquery2dotnet.com" class="btn btn-success" role="button">Αναβάθμιση</a>
-                                    </div>
-                                <div th:if="${(user.ins==3)}" class="panel-footer">
+                                </div>
+                                <div th:if="${(user.ins=='3')}" class="panel-footer">
                                     <a  href="http://www.jquery2dotnet.com" class="btn btn-success" role="button">Το πακέτο μου</a></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
+            <section id="dunklier2" class="tab-panel">
+                <h2 style="text-align: center;">Πρόσκληση Φίλων</h2>
+
+                <form class="login" action="#" method="POST">
+                    <p style="text-align: center;"> To e-mail του φίλου μου :</p>
+                    <input required name="e-mail" type="email" style="width: 40%;text-align: center" placeholder="e-mail">
+                    <div class="w3ls-submit">
+                        <input type="submit" value="Πρόσκληση">
+                    </div>
+                </form>
+            </section>
         </div>
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
 
 <!-- news letter -->
 <div class="subscribe jarallax">
