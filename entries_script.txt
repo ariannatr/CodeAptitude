@@ -22,6 +22,3 @@ VALUES ('2', 'Μαρούσι','Παπανδρέου 34');
 INSERT INTO doctor (id, town, address)
 VALUES ('3', 'Γκάζι','Πειραιώς 34');
 
-
-
-select * from user;

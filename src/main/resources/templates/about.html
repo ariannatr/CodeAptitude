@@ -299,7 +299,26 @@
                         <div class="resp-tabs-container">
                             <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
                                 <div class="agileits-login">
-                                    <table>
+                                    <form action="#" method="post">
+                                        <input type="email" class="email" name="Email" placeholder="Email" required=""/>
+                                        <input type="password" class="password" name="Password" placeholder="Password" required=""/>
+                                        <div class="wthree-text">
+                                            <ul>
+                                                <li>
+                                                    <label class="anim">
+                                                        <input type="checkbox" class="checkbox">
+                                                        <span> Remember me ?</span>
+                                                    </label>
+                                                </li>
+                                                <li> <a href="#">Forgot password?</a> </li>
+                                            </ul>
+                                            <div class="clearfix"> </div>
+                                        </div>
+                                        <div class="w3ls-submit">
+                                            <input type="submit" value="LOGIN">
+                                        </div>
+                                    </form>
+                                    <!--table>
                                         <tr>
                                             <td class="mylabel"> Name   </td>
                                             <td > <span th:text="${user.name}"></span></td>
@@ -317,7 +336,7 @@
                                             <td> <span th:text="${user.telephone}"></span> </td>
                                         </tr>
 
-                                    </table>
+                                    </table-->
                                     <!--form class="login" th:action="@{/host}" method="POST">
                                         <p> Παρέχω φιλοξενία για τις μέρες :</p>
                                         <input name="apoDate" type="text"  id="datepicker1" style="width: 40%;" placeholder="Από" data-date-format='yyyy-mm-dd' >

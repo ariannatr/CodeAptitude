@@ -147,6 +147,7 @@ public class UsersEntity implements Serializable {
         if (surname != null ? !surname.equals(that.surname) : that.surname != null) return false;
         if (location != null ? !location.equals(that.location) : that.location != null) return false;
         if (email != null ? !email.equals(that.email) : that.email != null) return false;
+        if (photo != null ? !photo.equals(that.photo) : that.photo != null) return false;
         if (fromDate != null ? !fromDate.equals(that.fromDate) : that.fromDate != null) return false;
         if (toDate != null ? !toDate.equals(that.toDate) : that.toDate != null) return false;
         return true;
@@ -167,7 +168,7 @@ public class UsersEntity implements Serializable {
         return result;
     }
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private Set<PetEntity> pets= new HashSet<>(0);
 
     public Set<PetEntity> getPets() {
