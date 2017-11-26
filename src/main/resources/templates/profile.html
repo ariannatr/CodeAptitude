@@ -105,18 +105,22 @@
                 <table>
                     <tr>
                         <td class="mylabel"> Όνομα  </td>
+                        <td> </td>
                         <td > <span th:text="${user.name}"></span></td>
                     </tr>
                     <tr>
                         <td class="mylabel"> Επίθετο   </td>
+                        <td> </td>
                         <td> <span th:text="${user.surname}"></span> </td>
                     </tr>
                     <tr>
                         <td class="mylabel"> Τοποθεσία  </td>
+                        <td> </td>
                         <td> <span th:text="${user.location}"></span> </td>
                     </tr>
                     <tr>
                         <td class="mylabel"> Τηλέφωνο   </td>
+                        <td> </td>
                         <td> <span th:text="${user.telephone}"></span> </td>
                     </tr>
 
@@ -136,13 +140,13 @@
                     <table>
                         <tr>
                             <td class="mylabel"> PetName   </td>
+                            <td> </td>
                             <td > <span th:text="${user.petname}"></span></td>
                         </tr>
                         <tr>
                             <td>  <label class="anim">
                                 <form name="checkform" id="checkform" th:action="@{/lost}" method="POST">
-                                    <input type="button" class="btn btn-danger">
-                                    <span> Lost</span> </input>
+                                    <input type="submit" class="btn btn-danger" value="Lost"/>
                                 </form>
 
                             </label>
@@ -184,24 +188,19 @@
                                         </tr>
                                         <tr class="active">
                                             <td>
-                                                Ασφάλεια Θανάτου
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
                                                 Παροχές Νοσηλείας
                                             </td>
                                         </tr>
-                                        <tr class="active">
+                                        <tr >
                                             <td>
-                                                Έκπτωση σε Συμβεβλημένες Ιατρικές Κλινικές
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
+                                              5%  Έκπτωση σε Συμβεβλημένες Ιατρικές Κλινικές
                                             </td>
                                         </tr>
                                         <tr class="active">
+                                            <td>
+                                            </td>
+                                        </tr>
+                                        <tr >
                                             <td>
                                             </td>
                                         </tr>
@@ -251,12 +250,12 @@
                                         </tr>
                                         <tr class="active">
                                             <td>
-                                                Έκπτωση σε Συμβεβλημένες Ιατρικές Κλινικές
+                                              10%  Έκπτωση σε Συμβεβλημένες Ιατρικές Κλινικές
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                Προσφορές σε Διατροφή και Καλωπισμό
+                                            5%    Προσφορές σε Διατροφή και Καλωπισμό
                                             </td>
                                         </tr>
                                         <tr>
@@ -283,6 +282,7 @@
                                     <div class="the-price">
                                         <h1>
                                             €35<span class="subscript">/Μήνα</span></h1>
+                                        <p>(€2 σε φιλοζωικές οργανώσεις,ΜΚΟ) </p>
                                     </div>
                                     <table class="table">
                                         <tr>
@@ -302,12 +302,12 @@
                                         </tr>
                                         <tr class="active">
                                             <td>
-                                                Έκπτωση σε Συμβεβλημένες Ιατρικές Κλινικές
+                                              15%  Έκπτωση σε Συμβεβλημένες Ιατρικές Κλινικές
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                Προσφορές σε Διατροφή και Καλωπισμό
+                                             10%   Προσφορές σε Διατροφή και Καλωπισμό
                                             </td>
                                         </tr>
                                         <tr class="active">

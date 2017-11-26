@@ -142,6 +142,7 @@ public class MainController {
         modelAndView.setViewName("/profile");
         Authentication authentication = authenticationFacade.getAuthentication();
         if (!authentication.getName().equals("anonymousUser")) {
+            System.out.println("mpike sto lost");
             modelAndView.addObject("uname", authentication.getName());
             UsersEntity userS = userService.findByUsername(authentication.getName());
 
