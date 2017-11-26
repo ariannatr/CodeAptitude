@@ -2,6 +2,9 @@ package dearpet.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
+import java.util.HashSet;
+
 
 /**
  * Created by Arianna on 23/8/2017.
@@ -11,13 +14,15 @@ import java.io.Serializable;
 public class UsersEntity implements Serializable {
     private String username;
     private String password;
-    private int lost;
     private String name;
     private String surname;
     private String telephone;
     private String location;
     private String photo;
-    private String petname;
+    private String email;
+    private int host;
+    private String fromDate;
+    private String toDate;
 
     @Id
     @Column(name = "username")
@@ -40,13 +45,13 @@ public class UsersEntity implements Serializable {
     }
 
     @Basic
-    @Column(name = "lost")
-    public int getType() {
-        return lost;
+    @Column(name = "host")
+    public int getHost() {
+        return host;
     }
 
-    public void setType(int type) {
-        this.lost = lost;
+    public void setHost(int host) {
+        this.host = host;
     }
 
     @Basic
@@ -88,6 +93,16 @@ public class UsersEntity implements Serializable {
     }
 
     @Basic
+    @Column(name = "email")
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    @Basic
     @Column(name="photo")
     public String getPhoto() {
         return photo;
@@ -96,14 +111,25 @@ public class UsersEntity implements Serializable {
         this.photo = photo;
     }
 
+
     @Basic
-    @Column(name = "petname")
-    public String getPetname() {
-        return petname;
+    @Column(name = "fromDate")
+    public String getFromdate() {
+        return fromDate;
     }
 
-    public void setPetname(String petname) {
-        this.petname = petname;
+    public void setFromdate(String fromDate) {
+        this.fromDate = fromDate;
+    }
+
+    @Basic
+    @Column(name = "toDate")
+    public String getTodate() {
+        return toDate;
+    }
+
+    public void setTodate(String toDate) {
+        this.toDate = toDate;
     }
 
     @Override
@@ -113,14 +139,16 @@ public class UsersEntity implements Serializable {
 
         UsersEntity that = (UsersEntity) o;
 
-        if (lost != that.lost) return false;
+        if (host != that.host) return false;
         if (telephone != null ? !telephone.equals(that.telephone) : that.telephone != null) return false;
         if (username != null ? !username.equals(that.username) : that.username != null) return false;
         if (password != null ? !password.equals(that.password) : that.password != null) return false;
         if (name != null ? !name.equals(that.name) : that.name != null) return false;
         if (surname != null ? !surname.equals(that.surname) : that.surname != null) return false;
         if (location != null ? !location.equals(that.location) : that.location != null) return false;
-        if (petname != null ? !petname.equals(that.petname) : that.petname != null) return false;
+        if (email != null ? !email.equals(that.email) : that.email != null) return false;
+        if (fromDate != null ? !fromDate.equals(that.fromDate) : that.fromDate != null) return false;
+        if (toDate != null ? !toDate.equals(that.toDate) : that.toDate != null) return false;
         return true;
     }
 
@@ -128,13 +156,26 @@ public class UsersEntity implements Serializable {
     public int hashCode() {
         int result = username != null ? username.hashCode() : 0;
         result = 31 * result + (password != null ? password.hashCode() : 0);
-        result = 31 * result + lost;
+        result = 31 * result + host;
         result = 31 * result + (name != null ? name.hashCode() : 0);
-        result = 31 * result + (petname != null ? petname.hashCode() : 0);
+        result = 31 * result + (email != null ? email.hashCode() : 0);
         result = 31 * result + (surname != null ? surname.hashCode() : 0);
         result = 31 * result + (telephone != null ? telephone.hashCode() : 0);
         result = 31 * result + (location != null ? location.hashCode() : 0);
+        result = 31 * result + (fromDate != null ? fromDate.hashCode() : 0);
+        result = 31 * result + (toDate != null ? toDate.hashCode() : 0);
         return result;
+    }
+
+    @OneToMany
+    private Set<PetEntity> pets= new HashSet<>(0);
+
+    public Set<PetEntity> getPets() {
+        return pets;
+    }
+
+    public void setPets(Set<PetEntity> pets) {
+        this.pets = pets;
     }
     
 }

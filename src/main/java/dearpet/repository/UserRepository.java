@@ -15,11 +15,8 @@ import java.util.ArrayList;
 @Repository("userRepository")
 public interface UserRepository extends PagingAndSortingRepository<UsersEntity,String>{
     UsersEntity findByUsername(String username);
-    @Query("select p from UsersEntity p where p.type=?1 or p.type=?2")
-    Page<UsersEntity> findByType(int type, int type2, Pageable pageable);
 
     ArrayList<UsersEntity> findAll();
 
-    @Query("select p from UsersEntity p where p.type=?1 or p.type=?2")
-    ArrayList<UsersEntity> findAllByType(int type, int type2);
+    ArrayList<UsersEntity> findAllByHost(int host);
 }
