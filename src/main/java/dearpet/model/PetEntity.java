@@ -5,6 +5,7 @@ import java.io.Serializable;
 /**
  * Created by Σταυρίνα on 26/11/2017.
  */
+/*
 @Entity
 @Table(name = "pet", schema = "mydb")
 public class PetEntity implements  Serializable{
@@ -148,3 +149,4 @@ public class PetEntity implements  Serializable{
 //    }
 
 }
+*/

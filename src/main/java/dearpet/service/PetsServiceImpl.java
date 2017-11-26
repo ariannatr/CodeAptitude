@@ -1,7 +1,8 @@
 package dearpet.service;
 
-import dearpet.model.PetEntity;
-import dearpet.repository.PetRepository;
+//import dearpet.model.PetEntity;
+//
+// import dearpet.repository.PetRepository;
 import dearpet.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -12,6 +13,7 @@ import java.util.List;
 /**
  * Created by Arianna on 26/11/2017.
  */
+/*
 @Service("petsService")
 public class PetsServiceImpl implements PetsService {
 
@@ -25,4 +27,4 @@ public class PetsServiceImpl implements PetsService {
         return petRepository.findAllByAskforhome('1');
     }
 
-}
+}*/

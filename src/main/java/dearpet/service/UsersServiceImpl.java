@@ -1,8 +1,8 @@
 package dearpet.service;
 
-import dearpet.model.PetEntity;
+//import dearpet.model.PetEntity;
 import dearpet.model.UsersEntity;
-import dearpet.repository.PetRepository;
+//import dearpet.repository.PetRepository;
 import dearpet.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -20,9 +20,9 @@ import java.util.Set;
 public class UsersServiceImpl implements UsersService {
 
 
-    @Qualifier("petRepository")
+ /*   @Qualifier("petRepository")
     @Autowired
-    private PetRepository petRepository;
+    private PetRepository petRepository;*/
 
     @Qualifier("userRepository")
     @Autowired
@@ -100,17 +100,11 @@ public class UsersServiceImpl implements UsersService {
         userRepository.save(useron);
 
     }
+    @Override
+    public void saveUseronUpdate(UsersEntity useron){
+        userRepository.save(useron);
+    }
 
-//    @Override
-//    public Page<UsersEntity> findAllPageable(Pageable pageable){
-//        return userRepository.findAll(pageable);
-//    }
-//
-//    @Override
-//    public Page<UsersEntity> findAllRenters(Pageable pageable)
-//    {
-//        return userRepository.findByType(2,3,pageable);
-//    }
 //
 //    @Override
 //    public Page<UsersEntity> findAllOwners(Pageable pageable)
@@ -160,31 +154,10 @@ public class UsersServiceImpl implements UsersService {
 //    @Override
 //    public ArrayList<UsersEntity> findAll(){ return userRepository.findAll();}
 //
-//    @Override
-//    public ArrayList<UsersEntity> findAllOwners()
-//    {
-//        return userRepository.findAllByType(1,3);
-//    }
-//
-//    @Override
-//    public ArrayList<UsersEntity> findAllRenters()
-//    {
-//        return userRepository.findAllByType(2,3);
-//    }
-//
-//
-//    @Override
-//    public Boolean checkforRenterActivity(RenterEntity renterEntity)
-//    {
-//        if((renterEntity.getReservationsByUsersUsername().size()==0) || (renterEntity.getComments().size()==0))
-//            return  true;
-//        else
-//            return false;
-//    }
-//
-//    @Override
-//    public ArrayList<RenterEntity> findAllRentersEntity()
-//    {
-//        return  renterRepository.findAll();
-//    }
+
+    @Override
+    public  ArrayList<UsersEntity> findAll()
+    {
+        return  userRepository.findAll();
+    }
 }

@@ -1,5 +1,5 @@
-<html  xmlns="http://www.w3.org/1999/xhtml"
-       xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,6 +19,8 @@
     <link rel="stylesheet" th:href="@{css/flexslider.css}" type="text/css" media="screen" property="" />
     <!-- //Custom Theme files -->
     <!-- web-fonts -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" rel="stylesheet" type="text/css" media="all" />
+
     <link th:href="@{//fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i}" rel="stylesheet">
     <link th:href="@{//fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700,800}" rel="stylesheet">
     <!-- //web-fonts -->
@@ -130,25 +132,30 @@
             </section>
             <section id="rauchbier" class="tab-panel">
                 <h2>Το κατοικίδιό μου</h2>
-                <table>
-                    <tr>
-                        <td class="mylabel"> PetName   </td>
-                        <!--<td > <span th:text="${pet.petname}"></span></td>-->
-                    </tr>
-                    <tr>
-                        <td>  <label class="anim">
-                            <input type="checkbox" class="checkbox">
-                            <span> Lost</span>
-                        </label>
-                        </td>
-                        <td></td>
-                    </tr>
 
-                </table>
+                    <table>
+                        <tr>
+                            <td class="mylabel"> PetName   </td>
+                            <td > <span th:text="${user.petname}"></span></td>
+                        </tr>
+                        <tr>
+                            <td>  <label class="anim">
+                                <form name="checkform" id="checkform" th:action="@{/lost}" method="POST">
+                                    <input type="button" class="btn btn-danger">
+                                    <span> Lost</span> </input>
+                                </form>
+
+                            </label>
+                            </td>
+                            <td></td>
+                        </tr>
+
+                    </table>
+
                 <form class="login" th:action="@{/askfor}" method="POST">
                     <p> Θέλω σπίτι για τις μέρες :</p>
-                    <input name="apoDate" type="text"  id="datepicker1" style="width: 40%;" placeholder="Από" data-date-format='yyyy-mm-dd' >
-                    <input name="toDate" type="text" id="datepicker2" style="width: 40%;" placeholder="Εως" data-date-format='yyyy-mm-dd' >
+                    <input name="apoDate" type="text"  id="datepicker3" style="width: 40%;" placeholder="Από" data-date-format='yyyy-mm-dd' >
+                    <input name="toDate" type="text" id="datepicker4" style="width: 40%;" placeholder="Εως" data-date-format='yyyy-mm-dd' >
                     <div class="w3ls-submit">
                         <input type="submit" value="Αίτηση">
                     </div>
@@ -497,5 +504,37 @@
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
 <script th:src="@{/js/bootstrap.js}"></script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+
+<script type="text/javascript">
+
+    var dateToday = new Date();
+    ($('#datepicker1')).datepicker({
+        dateFormat: 'yyyy-MM-dd',
+        inline: true,
+        showOtherMonths: true,
+        minDate: dateToday
+    });
+    ($('#datepicker2')).datepicker({
+        dateFormat: 'yyyy-MM-dd',
+        inline: true,
+        showOtherMonths: true,
+        minDate: 0
+    });
+    ($('#datepicker3')).datepicker({
+        dateFormat: 'yyyy-MM-dd',
+        inline: true,
+        showOtherMonths: true,
+        minDate: 0
+    });
+    ($('#datepicker4')).datepicker({
+        dateFormat: 'yyyy-MM-dd',
+        inline: true,
+        showOtherMonths: true,
+        minDate: 0
+    });
+
+</script>
 </body>
 </html>

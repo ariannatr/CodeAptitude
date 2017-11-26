@@ -1,7 +1,6 @@
 package dearpet.controller;
 
 import dearpet.authentication.IAuthenticationFacade;
-import dearpet.model.PetEntity;
 import dearpet.model.UsersEntity;
 import dearpet.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -109,11 +108,11 @@ public class MainController {
         if (!authentication.getName().equals("anonymousUser")) {
             modelAndView.addObject("uname", authentication.getName());
             UsersEntity userS = userService.findByUsername(authentication.getName());
-            PetEntity petEntity=userS.getPetEntity();
             modelAndView.addObject("uname", authentication.getName());
             modelAndView.addObject("user",userS);
-            modelAndView.addObject("pet",petEntity);
-//            System.out.print("Exw to zwaki "+petEntity.getPetname());
+
+
+         //   System.out.print("Exw to zwaki "+petEntity.getPetname());
             System.out.println("His name is"+userS.getName());
         }
         return modelAndView;
@@ -122,15 +121,36 @@ public class MainController {
     @RequestMapping(value={"/profile"}, method = RequestMethod.POST)
     public ModelAndView postprof(){
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("/prof");
+        modelAndView.setViewName("/profile");
         Authentication authentication = authenticationFacade.getAuthentication();
         if (!authentication.getName().equals("anonymousUser")) {
             modelAndView.addObject("uname", authentication.getName());
             UsersEntity userS = userService.findByUsername(authentication.getName());
-            PetEntity petEntity=userS.getPetEntity();
+
+            System.out.println("Pets name:"+userS.getPetname());
             modelAndView.addObject("uname", authentication.getName());
             modelAndView.addObject("user",userS);
-            modelAndView.addObject("pet",petEntity);
+
+            System.out.println("His name is"+userS.getName());
+        }
+        return modelAndView;
+    }
+
+    @RequestMapping(value={"/lost"}, method = RequestMethod.POST)
+    public ModelAndView lost(){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("/profile");
+        Authentication authentication = authenticationFacade.getAuthentication();
+        if (!authentication.getName().equals("anonymousUser")) {
+            modelAndView.addObject("uname", authentication.getName());
+            UsersEntity userS = userService.findByUsername(authentication.getName());
+
+            System.out.println("Pets name:"+userS.getPetname());
+            modelAndView.addObject("uname", authentication.getName());
+            modelAndView.addObject("user",userS);
+
+           userS.setLost(1);
+            userService.saveUseronUpdate(userS);
             System.out.println("His name is"+userS.getName());
         }
         return modelAndView;

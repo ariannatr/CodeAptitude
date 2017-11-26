@@ -19,6 +19,12 @@ public class UsersEntity  implements Serializable{
     private int host;
     private String fromDate;
     private String toDate;
+    private int lost;
+    private String fromDate2;
+    private String toDate2;
+    private int askforhome;
+    private String petname;
+
 
     @Id
     @Column(name = "username")
@@ -140,6 +146,57 @@ public class UsersEntity  implements Serializable{
         this.toDate = toDate;
     }
 
+    @Basic
+    @Column(name = "petname")
+    public String getPetname() {
+        return petname;
+    }
+
+    public void setPetname(String petname) {
+        this.petname = petname;
+    }
+
+    @Basic
+    @Column(name = "lost")
+    public int getLost() {
+        return lost;
+    }
+
+    public void setLost(int lost) {
+        this.lost = lost;
+    }
+
+    @Basic
+    @Column(name = "askforhome")
+    public int getAskforhome() {
+        return askforhome;
+    }
+
+    public void setAskforhome(int askforhome) {
+        this.askforhome = askforhome;
+    }
+
+
+
+    @Basic
+    @Column(name = "fromDate2")
+    public String getFromDate2() {
+        return fromDate2;
+    }
+
+    public void setFromDate2(String fromDate2) {
+        this.fromDate2 = fromDate2;
+    }
+
+    @Basic
+    @Column(name = "toDate2")
+    public String getToDate2() {
+        return toDate2;
+    }
+
+    public void setToDate2(String toDate2) {
+        this.toDate2 = toDate2;
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -178,27 +235,6 @@ public class UsersEntity  implements Serializable{
 
 
 
-    @OneToOne(fetch = FetchType.LAZY,mappedBy = "usersByUsersUsername")
-    private PetEntity petEntity;
 
-    public PetEntity getPetEntity() {
-        return petEntity;
-    }
 
-    public void setPetEntity(PetEntity petEntity) {
-        this.petEntity = petEntity;
-    }
-
-//    @OneToMany(fetch = FetchType.LAZY, cascade= CascadeType.ALL)
-//    @JoinColumn(name="username")
-//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "username")
-//  private Set<PetEntity> pets= new HashSet<>(0);
-//    public Set<PetEntity> getPets() {
-//        return pets;
-//    }
-//
-//    public void setPets(Set<PetEntity> pets) {
-//        this.pets = pets;
-//    }
-    
 }
